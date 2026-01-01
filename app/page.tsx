@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MobileNav } from "@/components/mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { GlobalFooter } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -106,14 +107,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/40 bg-card/20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-          <p className="text-xs sm:text-sm text-muted-foreground">
-            Aprende Español © 2026. A minimal learning platform for Spanish
-            grammar and vocabulary.
-          </p>
-        </div>
-      </footer>
+      <GlobalFooter />
     </main>
   );
 }
