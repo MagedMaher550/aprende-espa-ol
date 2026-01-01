@@ -1,46 +1,22 @@
-import Link from "next/link"
-import { VOCABULARY_COLLECTIONS } from "@/lib/vocabulary"
-import { MobileNav } from "@/components/mobile-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link";
+import { VOCABULARY_COLLECTIONS } from "@/lib/vocabulary";
+import { Header } from "@/components/header";
 
 export default function VocabularyIndex() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="border-b border-border/40 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 relative">
-          <Link href="/" className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
-            Aprende Español
-          </Link>
-          <div className="hidden md:flex items-center gap-2 sm:gap-4 md:gap-8 flex-shrink-0">
-            <Link
-              href="/grammar"
-              className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Grammar
-            </Link>
-            <Link href="/vocabulary" className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap">
-              Vocabulary
-            </Link>
-            <Link
-              href="/resources"
-              className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Resources
-            </Link>
-            <ThemeToggle />
-          </div>
-          <MobileNav />
-        </div>
-      </nav>
+      <Header />
 
       {/* Content */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="space-y-6 sm:space-y-8">
           <div className="space-y-2 sm:space-y-4">
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground">Vocabulary Collections</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
+              Vocabulary Collections
+            </h1>
             <p className="text-base sm:text-lg text-muted-foreground">
-              Organized word sets by theme. Learn practical vocabulary for everyday conversations.
+              Organized word sets by theme. Learn practical vocabulary for
+              everyday conversations.
             </p>
           </div>
 
@@ -60,8 +36,12 @@ export default function VocabularyIndex() {
                     {collection.level}
                   </span>
                 </div>
-                <p className="text-sm sm:text-base text-muted-foreground mb-2 sm:mb-3">{collection.description}</p>
-                <p className="text-xs sm:text-sm text-muted-foreground font-medium">{collection.words.length} words</p>
+                <p className="text-sm sm:text-base text-muted-foreground mb-2 sm:mb-3">
+                  {collection.description}
+                </p>
+                <p className="text-xs sm:text-sm text-muted-foreground font-medium">
+                  {collection.words.length} words
+                </p>
               </Link>
             ))}
           </div>
@@ -72,10 +52,11 @@ export default function VocabularyIndex() {
       <footer className="border-t border-border/40 bg-card/20 mt-12 sm:mt-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <p className="text-xs sm:text-sm text-muted-foreground">
-            Aprende Español © 2026. A minimal learning platform for Spanish grammar and vocabulary.
+            Aprende Español © 2026. A minimal learning platform for Spanish
+            grammar and vocabulary.
           </p>
         </div>
       </footer>
     </main>
-  )
+  );
 }

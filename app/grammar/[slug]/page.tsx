@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { GRAMMAR_LESSONS } from "@/lib/grammar-lessons"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { notFound } from "next/navigation"
+import { Header } from "@/components/header"
 
 export async function generateStaticParams() {
   return GRAMMAR_LESSONS.map((lesson) => ({
@@ -39,27 +39,7 @@ export default async function GrammarLesson({
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="border-b border-border/40 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4">
-          <Link href="/" className="text-lg sm:text-xl md:text-2xl font-bold text-foreground truncate">
-            Aprende Español
-          </Link>
-          <div className="flex items-center gap-2 sm:gap-4 md:gap-8 flex-shrink-0">
-            <Link href="/grammar" className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap">
-              Grammar
-            </Link>
-            <Link
-              href="/vocabulary"
-              className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Vocabulary
-            </Link>
-            <ThemeToggle />
-          </div>
-        </div>
-      </nav>
-
+      <Header />
       {/* Content */}
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="space-y-6 sm:space-y-8">
