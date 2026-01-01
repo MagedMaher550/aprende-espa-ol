@@ -14,24 +14,7 @@ export const metadata: Metadata = {
   generator: "MSS",
   icons: {
     // Standard icon field
-    icon: [
-      {
-        url: "/favicon.ico", // Add this line
-        sizes: "any",
-      },
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: [{ url: "/favicon.ico" }],
     // Optional: specifically for legacy "shortcut" behavior
     shortcut: "/favicon.ico",
     apple: "/apple-icon.png",
