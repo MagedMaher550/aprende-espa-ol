@@ -4,12 +4,13 @@ import Link from "next/link"
 import VocabularySearchClient from "./vocabulary-search-client"
 import { Header } from "@/components/header"
 import { GlobalFooter } from "@/components/footer"
+import { Vocabulary } from "@/lib/utils"
 
 interface VocabularyCollectionClientProps {
   title: string
   level: "Beginner" | "Intermediate" | "Advanced"
   description: string
-  words: Array<{ spanish: string; english: string }>
+  words: Vocabulary[]
 }
 
 export default function VocabularyCollectionClient({

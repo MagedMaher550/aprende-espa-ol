@@ -4,6 +4,12 @@ import { Header } from "@/components/header";
 import { GlobalFooter } from "@/components/footer";
 
 export default function VocabularyIndex() {
+  
+  const fs = require('fs');
+  const data = VOCABULARY_COLLECTIONS.map(v => v.words);
+  fs.writeFileSync('output.json', JSON.stringify(data, null, 2));
+  console.log('Data written to output.json');
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Header />
@@ -23,28 +29,30 @@ export default function VocabularyIndex() {
 
           {/* Collections Grid */}
           <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-            {VOCABULARY_COLLECTIONS.map((collection) => (
-              <Link
-                key={collection.slug}
-                href={`/vocabulary/${collection.slug}`}
-                className="group block p-4 sm:p-6 border border-border rounded-lg hover:border-accent/50 hover:bg-secondary/30 transition-colors"
-              >
-                <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-                  <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
-                    {collection.title}
-                  </h3>
-                  <span className="text-xs font-medium px-2 sm:px-3 py-1 bg-muted text-muted-foreground rounded-full whitespace-nowrap">
-                    {collection.level}
-                  </span>
-                </div>
-                <p className="text-sm sm:text-base text-muted-foreground mb-2 sm:mb-3">
-                  {collection.description}
-                </p>
-                <p className="text-xs sm:text-sm text-muted-foreground font-medium">
-                  {collection.words.length} words
-                </p>
-              </Link>
-            ))}
+            {VOCABULARY_COLLECTIONS.map((collection, index) => {
+              return (
+                <Link
+                  key={`${index}#{collection.slug}`}
+                  href={`/vocabulary/${collection.slug}`}
+                  className="group block p-4 sm:p-6 border border-border rounded-lg hover:border-accent/50 hover:bg-secondary/30 transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
+                    <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
+                      {collection.title}
+                    </h3>
+                    <span className="text-xs font-medium px-2 sm:px-3 py-1 bg-muted text-muted-foreground rounded-full whitespace-nowrap">
+                      {collection.level}
+                    </span>
+                  </div>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-2 sm:mb-3">
+                    {collection.description}
+                  </p>
+                  <p className="text-xs sm:text-sm text-muted-foreground font-medium">
+                    {collection.words.length} words
+                  </p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

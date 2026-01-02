@@ -41,8 +41,9 @@ export default function VocabularySearchClient({
               const cardData: Vocabulary = {
                 spanish: word.spanish,
                 english: word.english,
-                pronunciation: "", // Data source update required
-                arabic: "", // Data source update required
+                pronunciation: word.pronunciation,
+                arabic: word.arabic,
+                audioUrl: word.audioUrl || "",
               };
 
               return (

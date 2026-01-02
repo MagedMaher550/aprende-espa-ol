@@ -21,10 +21,20 @@ export interface VocabularyCollection {
   words: Vocabulary[]
 }
 
+// export function slugifyAudioFilename(phrase: string): string {
+//   return phrase
+//     .normalize("NFD") // split accented chars
+//     .replace(/[\u0300-\u036f]/g, "") // remove accents
+//     .replace(/[¿¡?!"',.]/g, "") // remove punctuation
+//     .trim()
+// }
+
 export function slugifyAudioFilename(phrase: string): string {
   return phrase
-    .normalize("NFD") // split accented chars
-    .replace(/[\u0300-\u036f]/g, "") // remove accents
-    .replace(/[¿¡?!"',.]/g, "") // remove punctuation
-    .trim()
+    .toLowerCase()                   // Match Python .lower()
+    .normalize("NFD")                // Split accented chars
+    .replace(/[\u0300-\u036f]/g, "") // Remove accents
+    .replace(/\s+/g, "_")            // Replace spaces with underscores
+    .replace(/[^\w]/g, "")           // Remove anything not a letter, number, or underscore
+    .trim();
 }
