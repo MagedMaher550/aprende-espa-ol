@@ -1,19 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
+import { VocabularyCard } from "../vocabulary-card";
+import type { Vocabulary } from "@/lib/utils";
 
-interface VocabularyWord {
-  spanish: string
-  english: string
-}
-
-export default function VocabularySearchClient({ words }: { words: VocabularyWord[] }) {
-  const [searchTerm, setSearchTerm] = useState("")
+export default function VocabularySearchClient({
+  words,
+}: {
+  words: Vocabulary[];
+}) {
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filteredWords = words.filter((word) => {
-    const searchLower = searchTerm.toLowerCase()
-    return word.spanish.toLowerCase().includes(searchLower) || word.english.toLowerCase().includes(searchLower)
-  })
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      word.spanish.toLowerCase().includes(searchLower) ||
+      word.english.toLowerCase().includes(searchLower)
+    );
+  });
 
   return (
     <>
@@ -27,33 +31,43 @@ export default function VocabularySearchClient({ words }: { words: VocabularyWor
         />
       </div>
 
-      {/* Vocabulary Items */}
-      <div className="space-y-2 sm:space-y-3">
+      {/* Vocabulary Items Grid */}
+      <div className="mt-8">
         {filteredWords.length > 0 ? (
-          filteredWords.map((word, index) => (
-            <div
-              key={index}
-              className="p-4 sm:p-5 border border-border rounded-lg hover:bg-secondary/50 transition-colors"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 sm:gap-3">
-                <h3 className="text-base sm:text-lg font-semibold text-foreground">{word.spanish}</h3>
-                <p className="text-sm sm:text-base text-muted-foreground">{word.english}</p>
-              </div>
-            </div>
-          ))
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredWords.map((word, index) => {
+              // We convert the simple word to the full Vocabulary object
+              // filling in missing data with defaults for now
+              const cardData: Vocabulary = {
+                spanish: word.spanish,
+                english: word.english,
+                pronunciation: "", // Data source update required
+                arabic: "", // Data source update required
+              };
+
+              return (
+                <VocabularyCard
+                  key={`${word.spanish}-${index}`}
+                  vocabulary={cardData}
+                />
+              );
+            })}
+          </div>
         ) : (
-          <div className="text-center py-8">
-            <p className="text-muted-foreground">No words found matching your search.</p>
+          <div className="text-center py-12 border border-dashed border-border rounded-lg">
+            <p className="text-muted-foreground">
+              No words found matching your search.
+            </p>
           </div>
         )}
       </div>
 
       {/* Results count */}
       {searchTerm && (
-        <p className="text-xs sm:text-sm text-muted-foreground text-center">
+        <p className="text-xs sm:text-sm text-muted-foreground text-center mt-6">
           {filteredWords.length} of {words.length} words
         </p>
       )}
     </>
-  )
+  );
 }
