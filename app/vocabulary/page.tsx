@@ -4,11 +4,7 @@ import { Header } from "@/components/header";
 import { GlobalFooter } from "@/components/footer";
 
 export default function VocabularyIndex() {
-  
-  const fs = require('fs');
-  const data = VOCABULARY_COLLECTIONS.map(v => v.words);
-  fs.writeFileSync('output.json', JSON.stringify(data, null, 2));
-  console.log('Data written to output.json');
+
 
   return (
     <main className="min-h-screen bg-background text-foreground">
