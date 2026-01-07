@@ -52,6 +52,7 @@ import professions_jobs from "./collection_6"
 import food_drinks from "./collection_7"
 import places_city from "./collection_8"
 import adjectives_describing_people from "./collection_9"
+import language_learning_terms from "./collection_54"
 
 
 
@@ -109,5 +110,6 @@ export const VOCABULARY_COLLECTIONS: VocabularyCollection[] = [
   social_cultural_activities,
   descriptive_adjectives_advanced,
   verbs_existence_state,
-  miscellaneous_important_words
+  miscellaneous_important_words,
+  language_learning_terms
 ]
