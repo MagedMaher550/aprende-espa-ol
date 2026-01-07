@@ -30,6 +30,7 @@ import grammar_lesson_29 from "./lesson-29"
 import grammar_lesson_30 from "./lesson-30"
 import grammar_lesson_31 from "./lesson-31"
 import grammar_lesson_32 from "./lesson-32"
+import grammar_lesson_33 from "./lesson-33"
 
 export interface GrammarLesson {
   slug: string
@@ -540,5 +541,21 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       practice exercises opinions Spanish
     `,
     component: grammar_lesson_32,
+  }, {
+    slug: "lesson-33",
+    title: "Lesson 33: Pretérito Perfecto (Present Perfect)",
+    level: "A2.1",
+    description:
+      "Master the Spanish Pretérito Perfecto. Learn to conjugate the auxiliary verb 'haber', form regular and irregular past participles, and understand the difference between the verb tense and its use as an adjective.",
+    searchContent: `
+      Spanish Present Perfect Pretérito Perfecto lesson 33
+      conjugating haber yo he tú has él ha nosotros hemos
+      past participle ado ido irregulars
+      abrir abierto decir dicho hacer hecho ver visto romper roto
+      unfinished time markers hoy esta semana este año
+      reflexive verbs with pretérito perfecto
+      past participle as adjective conocido vs he conocido
+    `,
+    component: grammar_lesson_33,
   }
 ];
