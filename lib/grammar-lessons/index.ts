@@ -31,6 +31,7 @@ import grammar_lesson_30 from "./lesson-30"
 import grammar_lesson_31 from "./lesson-31"
 import grammar_lesson_32 from "./lesson-32"
 import grammar_lesson_33 from "./lesson-33"
+import grammar_lesson_34 from "./lesson-34"
 
 export interface GrammarLesson {
   slug: string
@@ -557,5 +558,22 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       past participle as adjective conocido vs he conocido
     `,
     component: grammar_lesson_33,
+  },{
+    slug: "lesson-34",
+    title: "Lesson 34: Numbers From 200 and Upward",
+    level: "A2.2",
+    description:
+      "An in-depth guide to large Spanish numbers. Explains gender agreement rules, irregular hundreds (500, 700, 900), and the 'Long Scale' system used for millions and billions.",
+    searchContent: `
+      Spanish numbers 200 to billions lesson 34
+      quinientos setecientos novecientos irregulars
+      mil vs un mil rules
+      millón vs millones agreement
+      Spanish billion mil millones vs billón difference
+      gender agreement numbers doscientos vs doscientas examples
+      trillions in spanish un billón
+      complex large numbers reading
+    `,
+    component: grammar_lesson_34,
   }
 ];
