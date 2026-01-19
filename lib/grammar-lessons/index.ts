@@ -579,7 +579,7 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
   }, {
     "slug": "lesson-35-indefinite-words-masterclass",
     "title": "Lesson 35 Masterclass: Indefinite Words",
-    "level": "A2.2",
+    "level": "A1.4",
     "description": "Comprehensive analysis of Spanish non-specific reference: The categorical divide between humans, objects, and quantified nouns.",
     "searchContent": "comprehensive Spanish indefinite words, alguien vs nadie deep dive, algo vs nada mechanics, alguno vs algún rules, Spanish double negation logic, indefinite adjectives feminine plural, Spanish grammar lesson 35",
     "component": grammar_lesson_35
