@@ -32,6 +32,7 @@ import grammar_lesson_31 from "./lesson-31"
 import grammar_lesson_32 from "./lesson-32"
 import grammar_lesson_33 from "./lesson-33"
 import grammar_lesson_34 from "./lesson-34"
+import grammar_lesson_35 from "./lesson-35"
 
 export interface GrammarLesson {
   slug: string
@@ -545,7 +546,7 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
   }, {
     slug: "lesson-33",
     title: "Lesson 33: Pretérito Perfecto (Present Perfect)",
-    level: "A2.1",
+    level: "A1.4",
     description:
       "Master the Spanish Pretérito Perfecto. Learn to conjugate the auxiliary verb 'haber', form regular and irregular past participles, and understand the difference between the verb tense and its use as an adjective.",
     searchContent: `
@@ -558,10 +559,10 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       past participle as adjective conocido vs he conocido
     `,
     component: grammar_lesson_33,
-  },{
+  }, {
     slug: "lesson-34",
     title: "Lesson 34: Numbers From 200 and Upward",
-    level: "A2.2",
+    level: "A1.4",
     description:
       "An in-depth guide to large Spanish numbers. Explains gender agreement rules, irregular hundreds (500, 700, 900), and the 'Long Scale' system used for millions and billions.",
     searchContent: `
@@ -575,5 +576,12 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       complex large numbers reading
     `,
     component: grammar_lesson_34,
+  }, {
+    "slug": "lesson-35-indefinite-words-masterclass",
+    "title": "Lesson 35 Masterclass: Indefinite Words",
+    "level": "A2.2",
+    "description": "Comprehensive analysis of Spanish non-specific reference: The categorical divide between humans, objects, and quantified nouns.",
+    "searchContent": "comprehensive Spanish indefinite words, alguien vs nadie deep dive, algo vs nada mechanics, alguno vs algún rules, Spanish double negation logic, indefinite adjectives feminine plural, Spanish grammar lesson 35",
+    "component": grammar_lesson_35
   }
 ];
