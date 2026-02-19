@@ -33,6 +33,7 @@ import grammar_lesson_32 from "./lesson-32"
 import grammar_lesson_33 from "./lesson-33"
 import grammar_lesson_34 from "./lesson-34"
 import grammar_lesson_35 from "./lesson-35"
+import grammar_lesson_36 from "./lesson-36"
 
 export interface GrammarLesson {
   slug: string
@@ -583,5 +584,13 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
     "description": "Comprehensive analysis of Spanish non-specific reference: The categorical divide between humans, objects, and quantified nouns.",
     "searchContent": "comprehensive Spanish indefinite words, alguien vs nadie deep dive, algo vs nada mechanics, alguno vs algún rules, Spanish double negation logic, indefinite adjectives feminine plural, Spanish grammar lesson 35",
     "component": grammar_lesson_35
+  },
+  {
+    "slug": "lesson-discourse-organizers-connectors",
+    "title": "Lesson 36: Discourse Organizers",
+    "level": "A2.1",
+    "description": "A comprehensive guide to Spanish connectors (Organizadores del discurso) to structure ideas, show contrast, result, and conclusion effectively.",
+    "searchContent": "Spanish discourse organizers, Spanish connectors, Pero vs Sin embargo, Así que vs Por tanto, Spanish transition words, interactive Spanish grammar lesson, connecting ideas in Spanish",
+    "component": grammar_lesson_36
   }
 ];
