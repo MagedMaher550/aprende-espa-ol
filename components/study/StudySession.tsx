@@ -183,8 +183,8 @@ export function StudySession(props: {
   }
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 flex-shrink-0 mb-4">
+    <div className="w-full flex flex-col flex-1 min-h-0">
+      <div className="w-full flex flex-col flex-1 min-h-0">
         <div className="text-sm text-muted-foreground">
           Mode: <span className="font-medium text-foreground">{mode}</span> • Card{" "}
           <span className="font-medium text-foreground">{session.currentIndex + 1}</span> /{" "}
