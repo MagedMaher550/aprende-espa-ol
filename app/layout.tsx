@@ -24,11 +24,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <Providers>
           <div className="min-h-screen bg-background text-foreground flex flex-col">
             <Header />
-            <div className="flex-1">{children}</div>
+
+            {/* FIXED MAIN CONTAINER */}
+            <main className="flex-1 flex flex-col min-h-0">
+              {children}
+            </main>
+
             <GlobalFooter />
           </div>
           <Analytics />

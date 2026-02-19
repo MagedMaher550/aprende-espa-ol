@@ -56,19 +56,21 @@ export default function StudyPage() {
         </div>
       )}
 
-{status === "session" && cardsById && settings && (
-  <div className="flex-1 flex items-center justify-center px-4 min-h-0">
-    <div className="w-full max-w-xl mx-auto flex flex-col min-h-0">
-      <StudySession
-        vocab={vocab}
-        cardsById={cardsById}
-        settings={settings}
-        onCardMapUpdate={setCardsById}
-        onAnalyticsUpdate={setAnalytics}
-      />
-    </div>
-  </div>
-)}
+      {status === "session" && cardsById && settings && (
+        <div className="flex-1 flex items-center justify-center min-h-full">
+          <div className="w-full max-w-xl mx-auto">
+            <StudySession
+              vocab={vocab}
+              cardsById={cardsById}
+              settings={settings}
+              onCardMapUpdate={setCardsById}
+              onAnalyticsUpdate={setAnalytics}
+            />
+          </div>
+        </div>
+      )}
+
+
 
 
       {status === "summary" && analytics && (

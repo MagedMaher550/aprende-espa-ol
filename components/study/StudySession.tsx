@@ -5,14 +5,22 @@ import type { FlattenedVocabWord } from "@/lib/vocabulary/flatten";
 import type { SrsCard, ReviewRating } from "@/lib/srs/types";
 import type { StudySettings } from "@/lib/study/settings";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
-import { answerRecorded, endSession, nextCard, reveal as revealAction } from "@/lib/redux/studyUiSlice";
+import {
+  answerRecorded,
+  endSession,
+  nextCard,
+  reveal as revealAction,
+} from "@/lib/redux/studyUiSlice";
 import { Flashcard } from "./Flashcard";
 import { Button } from "@/components/ui/button";
 import { isoNow } from "@/lib/srs/engine";
 import { reviewSrsCard } from "@/lib/srs/service";
 import { isCorrect, xpForRating } from "@/lib/study/sessionEngine";
 import { getAnalytics, setAnalytics } from "@/lib/db/studyRepo";
-import { DEFAULT_ANALYTICS, type StudyAnalyticsAggregate } from "@/lib/study/analytics";
+import {
+  DEFAULT_ANALYTICS,
+  type StudyAnalyticsAggregate,
+} from "@/lib/study/analytics";
 
 function buildVocabMap(vocab: FlattenedVocabWord[]) {
   return new Map(vocab.map((w) => [w.id, w] as const));
@@ -26,12 +34,15 @@ function todayKeyUtc(d = new Date()) {
 }
 
 function weekKeyUtc(d = new Date()) {
-  // ISO-ish week key; good enough for charts (YYYY-WW).
-  const date = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  const date = new Date(
+    Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())
+  );
   const dayNum = date.getUTCDay() || 7;
   date.setUTCDate(date.getUTCDate() + 4 - dayNum);
   const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
-  const weekNo = Math.ceil(((date.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
+  const weekNo = Math.ceil(
+    ((date.getTime() - yearStart.getTime()) / 86400000 + 1) / 7
+  );
   return `${date.getUTCFullYear()}-${String(weekNo).padStart(2, "0")}`;
 }
 
@@ -41,7 +52,9 @@ function mergeAnalyticsAfterReview(
   xp: number,
   transition?: { prevState?: string; nextState?: string }
 ) {
-  const next: StudyAnalyticsAggregate = { ...(prev ?? DEFAULT_ANALYTICS) };
+  const next: StudyAnalyticsAggregate = {
+    ...(prev ?? DEFAULT_ANALYTICS),
+  };
   next.totalXP += xp;
   next.totalReviews += 1;
   if (rating === "again") next.totalAgain += 1;
@@ -54,23 +67,25 @@ function mergeAnalyticsAfterReview(
   const week = weekKeyUtc();
   next.weeklyXP[week] = (next.weeklyXP[week] ?? 0) + xp;
 
-  // streak
   if (!next.lastActiveDate) {
     next.dailyStreak = 1;
     next.lastActiveDate = day;
   } else if (next.lastActiveDate === day) {
-    // same day: no change
   } else {
     const last = new Date(next.lastActiveDate + "T00:00:00Z");
     const now = new Date(day + "T00:00:00Z");
-    const diffDays = Math.round((now.getTime() - last.getTime()) / 86400000);
+    const diffDays = Math.round(
+      (now.getTime() - last.getTime()) / 86400000
+    );
     if (diffDays === 1) next.dailyStreak += 1;
     else next.dailyStreak = 1;
     next.lastActiveDate = day;
   }
 
-  // words learned count (reached "known" at least once)
-  if (transition?.prevState !== "known" && transition?.nextState === "known") {
+  if (
+    transition?.prevState !== "known" &&
+    transition?.nextState === "known"
+  ) {
     next.wordsLearned += 1;
   }
 
@@ -85,12 +100,20 @@ export function StudySession(props: {
   onAnalyticsUpdate: (a: StudyAnalyticsAggregate | null) => void;
 }) {
   const dispatch = useAppDispatch();
-  const { session, mode } = useAppSelector((s) => ({ session: s.studyUi.session, mode: s.studyUi.mode }));
+  const { session, mode } = useAppSelector((s) => ({
+    session: s.studyUi.session,
+    mode: s.studyUi.mode,
+  }));
 
-  const vocabMap = useMemo(() => buildVocabMap(props.vocab), [props.vocab]);
+  const vocabMap = useMemo(
+    () => buildVocabMap(props.vocab),
+    [props.vocab]
+  );
   const timeLimitSeconds = session?.timeLimitSeconds;
 
-  const [secondsLeft, setSecondsLeft] = useState<number | null>(timeLimitSeconds ?? null);
+  const [secondsLeft, setSecondsLeft] = useState<number | null>(
+    timeLimitSeconds ?? null
+  );
   const timerRef = useRef<number | null>(null);
 
   const prompt = useMemo(() => {
@@ -103,7 +126,6 @@ export function StudySession(props: {
     return { ...ref, word, srs };
   }, [session, vocabMap, props.cardsById]);
 
-  // Timer (timed mode)
   useEffect(() => {
     if (!timeLimitSeconds || !session) return;
     setSecondsLeft(timeLimitSeconds);
@@ -120,30 +142,11 @@ export function StudySession(props: {
       }
     }, 250);
     return () => {
-      if (timerRef.current) window.clearInterval(timerRef.current);
+      if (timerRef.current)
+        window.clearInterval(timerRef.current);
       timerRef.current = null;
     };
   }, [timeLimitSeconds, session, dispatch]);
-
-  // Keyboard shortcuts
-  useEffect(() => {
-    if (!session) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === " ") {
-        e.preventDefault();
-        if (!session.revealed) dispatch(revealAction());
-        return;
-      }
-      const map: Record<string, ReviewRating> = { "1": "again", "2": "hard", "3": "good", "4": "easy" };
-      const rating = map[e.key];
-      if (!rating) return;
-      if (!session.revealed) return; // must reveal first
-      e.preventDefault();
-      void handleAnswer(rating);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [session, dispatch]);
 
   const busyRef = useRef(false);
 
@@ -155,15 +158,22 @@ export function StudySession(props: {
       const xp = xpForRating(rating);
       const correct = isCorrect(rating);
 
-      // Persist SRS update (local-first)
-      const { prev, next } = await reviewSrsCard(prompt.vocabId, rating, isoNow());
+      const { prev, next } = await reviewSrsCard(
+        prompt.vocabId,
+        rating,
+        isoNow()
+      );
       const nextMap = new Map(props.cardsById);
       nextMap.set(next.id, next);
       props.onCardMapUpdate(nextMap);
 
-      // Update analytics aggregates (local-first)
       const current = await getAnalytics();
-      const merged = mergeAnalyticsAfterReview(current, rating, xp, { prevState: prev.state, nextState: next.state });
+      const merged = mergeAnalyticsAfterReview(
+        current,
+        rating,
+        xp,
+        { prevState: prev.state, nextState: next.state }
+      );
       await setAnalytics(merged);
       props.onAnalyticsUpdate(merged);
 
@@ -177,27 +187,41 @@ export function StudySession(props: {
   if (!session || !prompt) {
     return (
       <div className="text-sm text-muted-foreground">
-        Session unavailable. <Button variant="link">Back</Button>
+        Session unavailable.
       </div>
     );
   }
 
   return (
-    <div className="w-full flex flex-col flex-1 min-h-0">
-      <div className="w-full flex flex-col flex-1 min-h-0">
+    <div className="w-full flex flex-col flex-1 justify-center gap-8">
+      {/* Top meta */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div className="text-sm text-muted-foreground">
-          Mode: <span className="font-medium text-foreground">{mode}</span> • Card{" "}
-          <span className="font-medium text-foreground">{session.currentIndex + 1}</span> /{" "}
-          <span className="font-medium text-foreground">{session.prompts.length}</span>
+          Mode:{" "}
+          <span className="font-medium text-foreground">
+            {mode}
+          </span>{" "}
+          • Card{" "}
+          <span className="font-medium text-foreground">
+            {session.currentIndex + 1}
+          </span>{" "}
+          /{" "}
+          <span className="font-medium text-foreground">
+            {session.prompts.length}
+          </span>
         </div>
         {secondsLeft !== null && (
           <div className="text-sm tabular-nums">
-            Time left: <span className="font-semibold">{secondsLeft}s</span>
+            Time left:{" "}
+            <span className="font-semibold">
+              {secondsLeft}s
+            </span>
           </div>
         )}
       </div>
 
-      <div className="flex-1 flex items-center justify-center min-h-0 overflow-hidden">
+      {/* Flashcard */}
+      <div className="flex items-center justify-center">
         <Flashcard
           key={`${prompt.vocabId}-${prompt.direction}`}
           prompt={prompt}
@@ -207,37 +231,41 @@ export function StudySession(props: {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 flex-shrink-0 mt-4">
+      {/* Buttons */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <Button
           variant="outline"
           disabled={!session.revealed}
           onClick={() => void handleAnswer("again")}
-          className="justify-between min-h-[56px] rounded-xl border-red-200 dark:border-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 hover:border-red-300 dark:hover:border-red-800/40 transition-all duration-200 disabled:opacity-50"
+          className="justify-between min-h-[56px] rounded-xl border-red-200 dark:border-red-900/30 text-red-600 dark:text-red-400"
         >
           <span className="font-medium">Again</span>
           <span className="text-xs opacity-70">1</span>
         </Button>
+
         <Button
           variant="outline"
           disabled={!session.revealed}
           onClick={() => void handleAnswer("hard")}
-          className="justify-between min-h-[56px] rounded-xl border-amber-200 dark:border-amber-900/30 text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/20 hover:border-amber-300 dark:hover:border-amber-800/40 transition-all duration-200 disabled:opacity-50"
+          className="justify-between min-h-[56px] rounded-xl border-amber-200 dark:border-amber-900/30 text-amber-600 dark:text-amber-400"
         >
           <span className="font-medium">Hard</span>
           <span className="text-xs opacity-70">2</span>
         </Button>
+
         <Button
           disabled={!session.revealed}
           onClick={() => void handleAnswer("good")}
-          className="justify-between min-h-[56px] rounded-xl bg-blue-600 hover:bg-blue-700 text-white border-blue-600 hover:border-blue-700 transition-all duration-200 disabled:opacity-50"
+          className="justify-between min-h-[56px] rounded-xl bg-blue-600 text-white"
         >
           <span className="font-medium">Good</span>
           <span className="text-xs opacity-90">3</span>
         </Button>
+
         <Button
           disabled={!session.revealed}
           onClick={() => void handleAnswer("easy")}
-          className="justify-between min-h-[56px] rounded-xl bg-green-600 hover:bg-green-700 text-white border-green-600 hover:border-green-700 transition-all duration-200 disabled:opacity-50"
+          className="justify-between min-h-[56px] rounded-xl bg-green-600 text-white"
         >
           <span className="font-medium">Easy</span>
           <span className="text-xs opacity-90">4</span>
@@ -246,5 +274,3 @@ export function StudySession(props: {
     </div>
   );
 }
-
-
