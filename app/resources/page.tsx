@@ -1,7 +1,4 @@
-import Link from "next/link"
-import { MobileNav } from "@/components/mobile-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { GlobalFooter } from "@/components/footer";
+import type React from "react";
 
 const RESOURCES = [
   {
@@ -89,36 +86,7 @@ const RESOURCES = [
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="border-b border-border/40 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 relative">
-          <Link href="/" className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
-            Aprende Español
-          </Link>
-          <div className="hidden md:flex items-center gap-2 sm:gap-4 md:gap-8 flex-shrink-0">
-            <Link
-              href="/grammar"
-              className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Grammar
-            </Link>
-            <Link
-              href="/vocabulary"
-              className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Vocabulary
-            </Link>
-            <Link href="/resources" className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap">
-              Resources
-            </Link>
-            <ThemeToggle />
-          </div>
-          <MobileNav />
-        </div>
-      </nav>
-
-      {/* Content */}
+    <div>
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="space-y-6 sm:space-y-8">
           <div className="space-y-2 sm:space-y-4">
@@ -159,9 +127,6 @@ export default function ResourcesPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <GlobalFooter />
-    </main>
+    </div>
   )
 }

@@ -4,8 +4,6 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { GRAMMAR_LESSONS } from "@/lib/grammar-lessons";
 import { searchGrammarContent } from "@/lib/grammar-search-index";
-import { Header } from "@/components/header";
-import { GlobalFooter } from "@/components/footer";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -46,9 +44,7 @@ export default function GrammarIndex() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Header />
-
+    <div>
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="space-y-6 sm:space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -133,8 +129,6 @@ export default function GrammarIndex() {
           )}
         </div>
       </section>
-
-      <GlobalFooter />
-    </main>
+    </div>
   );
 }

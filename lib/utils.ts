@@ -11,6 +11,11 @@ export interface Vocabulary {
   arabic: string
   pronunciation: string
   audioUrl?: string
+  examples?: {
+    spanish: string
+    english?: string
+    arabic?: string
+  }[]
 }
 
 export interface VocabularyCollection {

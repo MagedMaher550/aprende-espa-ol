@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { MobileNav } from "./mobile-nav";
+import { MAIN_NAV } from "@/lib/navigation/mainNav";
 
 export function Header() {
   return (
@@ -13,24 +14,15 @@ export function Header() {
           Aprende Español
         </Link>
         <div className="hidden md:flex items-center gap-2 sm:gap-4 md:gap-8 flex-shrink-0">
-          <Link
-            href="/grammar"
-            className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap"
-          >
-            Grammar
-          </Link>
-          <Link
-            href="/vocabulary"
-            className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-          >
-            Vocabulary
-          </Link>
-          <Link
-            href="/resources"
-            className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-          >
-            Resources
-          </Link>
+          {MAIN_NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+            >
+              {item.label}
+            </Link>
+          ))}
           <ThemeToggle />
         </div>
         <MobileNav />

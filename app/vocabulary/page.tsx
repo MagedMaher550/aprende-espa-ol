@@ -3,8 +3,6 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { VOCABULARY_COLLECTIONS } from "@/lib/vocabulary";
-import { Header } from "@/components/header";
-import { GlobalFooter } from "@/components/footer";
 import { SearchBar } from "./search-bar";
 
 const ITEMS_PER_PAGE = 6;
@@ -37,9 +35,7 @@ export default function VocabularyIndex() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Header />
-
+    <div>
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="space-y-6 sm:space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -113,8 +109,6 @@ export default function VocabularyIndex() {
           )}
         </div>
       </section>
-
-      <GlobalFooter />
-    </main>
+    </div>
   );
 }

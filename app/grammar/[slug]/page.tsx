@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { GRAMMAR_LESSONS } from "@/lib/grammar-lessons";
 import { notFound } from "next/navigation";
-import { Header } from "@/components/header";
-import { GlobalFooter } from "@/components/footer";
 
 export async function generateStaticParams() {
   return GRAMMAR_LESSONS.map((lesson) => ({
@@ -39,9 +37,7 @@ export default async function GrammarLesson({
   const LessonComponent = lesson.component;
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Header />
-
+    <div>
       {/* Content */}
       <article
         className="
@@ -105,8 +101,6 @@ export default async function GrammarLesson({
           </footer>
         </div>
       </article>
-
-      <GlobalFooter />
-    </main>
+    </div>
   );
 }

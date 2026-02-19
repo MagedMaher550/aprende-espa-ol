@@ -2,8 +2,6 @@
 
 import Link from "next/link"
 import VocabularySearchClient from "./vocabulary-search-client"
-import { Header } from "@/components/header"
-import { GlobalFooter } from "@/components/footer"
 import { Vocabulary } from "@/lib/utils"
 
 interface VocabularyCollectionClientProps {
@@ -20,9 +18,7 @@ export default function VocabularyCollectionClient({
   words,
 }: VocabularyCollectionClientProps) {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Header />
-
+    <div>
       {/* Content */}
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="space-y-6 sm:space-y-8">
@@ -52,9 +48,6 @@ export default function VocabularyCollectionClient({
           </div>
         </div>
       </article>
-
-      {/* Footer */}
-      <GlobalFooter />
-    </main>
+    </div>
   )
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
+import { MAIN_NAV } from "@/lib/navigation/mainNav";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,27 +36,16 @@ export function MobileNav() {
             className="bg-card/95 backdrop-blur-sm border-b border-border/40 p-4 space-y-3 flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <Link
-              href="/grammar"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={closeMenu}
-            >
-              Grammar
-            </Link>
-            <Link
-              href="/vocabulary"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={closeMenu}
-            >
-              Vocabulary
-            </Link>
-            <Link
-              href="/resources"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={closeMenu}
-            >
-              Resources
-            </Link>
+            {MAIN_NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       )}
