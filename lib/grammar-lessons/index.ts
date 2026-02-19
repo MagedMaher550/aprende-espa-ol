@@ -34,6 +34,7 @@ import grammar_lesson_33 from "./lesson-33"
 import grammar_lesson_34 from "./lesson-34"
 import grammar_lesson_35 from "./lesson-35"
 import grammar_lesson_36 from "./lesson-36"
+import grammar_lesson_37 from "./lesson-37"
 
 export interface GrammarLesson {
   slug: string
@@ -586,11 +587,18 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
     "component": grammar_lesson_35
   },
   {
-    "slug": "lesson-discourse-organizers-connectors",
+    "slug": "lesson-36-discourse-organizers-connectors",
     "title": "Lesson 36: Discourse Organizers",
     "level": "A2.1",
     "description": "A comprehensive guide to Spanish connectors (Organizadores del discurso) to structure ideas, show contrast, result, and conclusion effectively.",
     "searchContent": "Spanish discourse organizers, Spanish connectors, Pero vs Sin embargo, Así que vs Por tanto, Spanish transition words, interactive Spanish grammar lesson, connecting ideas in Spanish",
     "component": grammar_lesson_36
+  }, {
+    "slug": "lesson-37-formas-de-pago-social-finance",
+    "title": "Lesson 37: Formas de Pago",
+    "level": "A2.1",
+    "description": "Mastering the social and commercial nuances of paying in Spanish: from splitting bills with friends to financing expensive purchases.",
+    "searchContent": "Spanish ways of paying, pagar a medias vs dividir la cuenta, pagar cada uno lo suyo, poner bote meaning, pagar a plazos installments, Spanish social etiquette paying, lesson 37 Spanish",
+    "component": grammar_lesson_37
   }
 ];
