@@ -53,6 +53,8 @@ import food_drinks from "./collection_7"
 import places_city from "./collection_8"
 import adjectives_describing_people from "./collection_9"
 import language_learning_terms from "./collection_54"
+import ciudad_ocio_vocab from "./collection_55"
+
 
 
 
@@ -111,5 +113,6 @@ export const VOCABULARY_COLLECTIONS: VocabularyCollection[] = [
   descriptive_adjectives_advanced,
   verbs_existence_state,
   miscellaneous_important_words,
-  language_learning_terms
+  language_learning_terms,
+  ciudad_ocio_vocab
 ]
