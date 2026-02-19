@@ -57,9 +57,9 @@ export default function StudyPage() {
       )}
 
       {status === "session" && cardsById && settings && (
-        <div className="min-h-[100dvh] flex flex-col">
-          <div className="flex-1 flex items-center justify-center px-4">
-            <div className="w-full max-w-xl mx-auto">
+        <div className="h-screen flex flex-col overflow-hidden -mt-[4rem] pt-[4rem]">
+          <div className="flex-1 flex items-center justify-center px-4 overflow-hidden min-h-0">
+            <div className="w-full max-w-xl mx-auto h-full flex flex-col min-h-0">
               <StudySession
                 vocab={vocab}
                 cardsById={cardsById}

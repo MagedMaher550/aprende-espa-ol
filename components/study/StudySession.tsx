@@ -183,8 +183,8 @@ export function StudySession(props: {
   }
 
   return (
-    <div className="w-full space-y-8 pb-8">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+    <div className="w-full h-full flex flex-col overflow-hidden">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 flex-shrink-0 mb-4">
         <div className="text-sm text-muted-foreground">
           Mode: <span className="font-medium text-foreground">{mode}</span> • Card{" "}
           <span className="font-medium text-foreground">{session.currentIndex + 1}</span> /{" "}
@@ -197,14 +197,17 @@ export function StudySession(props: {
         )}
       </div>
 
-      <Flashcard
-        prompt={prompt}
-        revealed={session.revealed}
-        autoPlayAudio={props.settings.autoPlayAudio}
-        onReveal={() => dispatch(revealAction())}
-      />
+      <div className="flex-1 flex items-center justify-center min-h-0 overflow-hidden">
+        <Flashcard
+          key={`${prompt.vocabId}-${prompt.direction}`}
+          prompt={prompt}
+          revealed={session.revealed}
+          autoPlayAudio={props.settings.autoPlayAudio}
+          onReveal={() => dispatch(revealAction())}
+        />
+      </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 flex-shrink-0 mt-4">
         <Button
           variant="outline"
           disabled={!session.revealed}
