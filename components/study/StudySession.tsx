@@ -183,15 +183,15 @@ export function StudySession(props: {
   }
 
   return (
-    <div className="space-y-4 sm:space-y-6 w-full">
+    <div className="w-full space-y-8 pb-8">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        <div className="text-xs sm:text-sm text-muted-foreground">
+        <div className="text-sm text-muted-foreground">
           Mode: <span className="font-medium text-foreground">{mode}</span> • Card{" "}
           <span className="font-medium text-foreground">{session.currentIndex + 1}</span> /{" "}
           <span className="font-medium text-foreground">{session.prompts.length}</span>
         </div>
         {secondsLeft !== null && (
-          <div className="text-xs sm:text-sm tabular-nums">
+          <div className="text-sm tabular-nums">
             Time left: <span className="font-semibold">{secondsLeft}s</span>
           </div>
         )}
@@ -204,36 +204,40 @@ export function StudySession(props: {
         onReveal={() => dispatch(revealAction())}
       />
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <Button
           variant="outline"
           disabled={!session.revealed}
           onClick={() => void handleAnswer("again")}
-          className="justify-between min-h-[48px] text-sm sm:text-base"
+          className="justify-between min-h-[56px] rounded-xl border-red-200 dark:border-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 hover:border-red-300 dark:hover:border-red-800/40 transition-all duration-200 disabled:opacity-50"
         >
-          Again <span className="text-xs opacity-70">1</span>
+          <span className="font-medium">Again</span>
+          <span className="text-xs opacity-70">1</span>
         </Button>
         <Button
           variant="outline"
           disabled={!session.revealed}
           onClick={() => void handleAnswer("hard")}
-          className="justify-between min-h-[48px] text-sm sm:text-base"
+          className="justify-between min-h-[56px] rounded-xl border-amber-200 dark:border-amber-900/30 text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/20 hover:border-amber-300 dark:hover:border-amber-800/40 transition-all duration-200 disabled:opacity-50"
         >
-          Hard <span className="text-xs opacity-70">2</span>
+          <span className="font-medium">Hard</span>
+          <span className="text-xs opacity-70">2</span>
         </Button>
         <Button
           disabled={!session.revealed}
           onClick={() => void handleAnswer("good")}
-          className="justify-between min-h-[48px] text-sm sm:text-base"
+          className="justify-between min-h-[56px] rounded-xl bg-blue-600 hover:bg-blue-700 text-white border-blue-600 hover:border-blue-700 transition-all duration-200 disabled:opacity-50"
         >
-          Good <span className="text-xs opacity-70">3</span>
+          <span className="font-medium">Good</span>
+          <span className="text-xs opacity-90">3</span>
         </Button>
         <Button
           disabled={!session.revealed}
           onClick={() => void handleAnswer("easy")}
-          className="justify-between min-h-[48px] text-sm sm:text-base"
+          className="justify-between min-h-[56px] rounded-xl bg-green-600 hover:bg-green-700 text-white border-green-600 hover:border-green-700 transition-all duration-200 disabled:opacity-50"
         >
-          Easy <span className="text-xs opacity-70">4</span>
+          <span className="font-medium">Easy</span>
+          <span className="text-xs opacity-90">4</span>
         </Button>
       </div>
     </div>

@@ -35,37 +35,51 @@ export default function StudyPage() {
   }, []);
 
   return (
-    <div className="min-h-screen">
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
-        {status === "dashboard" && cardsById && settings && analytics && (
-          <StudyDashboard
-            vocab={vocab}
-            cardsById={cardsById}
-            settings={settings}
-            analytics={analytics}
-            onSettingsChange={setSettings}
-            onDataRefresh={async () => {
-              const [cards, s, a] = await Promise.all([getAllSrsCardsMap(), getSettings(), getAnalytics()]);
-              setCardsById(cards);
-              setSettings(s);
-              setAnalytics(a);
-            }}
-          />
-        )}
+    <>
+      {status === "dashboard" && cardsById && settings && analytics && (
+        <div className="min-h-screen">
+          <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+            <StudyDashboard
+              vocab={vocab}
+              cardsById={cardsById}
+              settings={settings}
+              analytics={analytics}
+              onSettingsChange={setSettings}
+              onDataRefresh={async () => {
+                const [cards, s, a] = await Promise.all([getAllSrsCardsMap(), getSettings(), getAnalytics()]);
+                setCardsById(cards);
+                setSettings(s);
+                setAnalytics(a);
+              }}
+            />
+          </section>
+        </div>
+      )}
 
-        {status === "session" && cardsById && settings && (
-          <StudySession
-            vocab={vocab}
-            cardsById={cardsById}
-            settings={settings}
-            onCardMapUpdate={setCardsById}
-            onAnalyticsUpdate={setAnalytics}
-          />
-        )}
+      {status === "session" && cardsById && settings && (
+        <div className="min-h-[100dvh] flex flex-col">
+          <div className="flex-1 flex items-center justify-center px-4">
+            <div className="w-full max-w-xl mx-auto">
+              <StudySession
+                vocab={vocab}
+                cardsById={cardsById}
+                settings={settings}
+                onCardMapUpdate={setCardsById}
+                onAnalyticsUpdate={setAnalytics}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
-        {status === "summary" && analytics && <SessionSummary analytics={analytics} />}
-      </section>
-    </div>
+      {status === "summary" && analytics && (
+        <div className="min-h-screen">
+          <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+            <SessionSummary analytics={analytics} />
+          </section>
+        </div>
+      )}
+    </>
   );
 }
 

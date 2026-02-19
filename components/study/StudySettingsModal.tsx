@@ -95,10 +95,10 @@ export function StudySettingsModal(props: {
   };
 
   return (
-    <div className="space-y-4 sm:space-y-6">
+    <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label>Daily new word limit</Label>
+          <Label className="text-sm font-medium">Daily new word limit</Label>
           <Input
             type="number"
             min={1}
@@ -110,19 +110,20 @@ export function StudySettingsModal(props: {
                 void update({ ...props.settings, newPerDay: val });
               }
             }}
+            className="rounded-xl"
           />
         </div>
 
         <div className="space-y-2">
-          <Label>Card direction</Label>
+          <Label className="text-sm font-medium">Card direction</Label>
           <Select
             value={props.settings.cardDirection}
             onValueChange={(v) => void update({ ...props.settings, cardDirection: v as any })}
           >
-            <SelectTrigger>
+            <SelectTrigger className="rounded-xl">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="rounded-xl">
               <SelectItem value="smart">Smart</SelectItem>
               <SelectItem value="spanish-front">Spanish front</SelectItem>
               <SelectItem value="meaning-front">Meaning front</SelectItem>
@@ -130,7 +131,7 @@ export function StudySettingsModal(props: {
           </Select>
         </div>
 
-        <div className="flex items-center justify-between rounded-lg border border-border/60 p-3">
+        <div className="flex items-center justify-between rounded-xl border border-border/60 p-4 bg-muted/30">
           <div className="space-y-0.5">
             <div className="text-sm font-medium">Autoplay audio</div>
             <div className="text-xs text-muted-foreground">Play Spanish audio when revealing cards.</div>
@@ -138,16 +139,16 @@ export function StudySettingsModal(props: {
           <Switch checked={props.settings.autoPlayAudio} onCheckedChange={(v) => void update({ ...props.settings, autoPlayAudio: v })} />
         </div>
 
-        <div className="flex items-center justify-between rounded-lg border border-border/60 p-3">
+        <div className="flex items-center justify-between rounded-xl border border-border/60 p-4 bg-muted/30">
           <div className="space-y-0.5">
             <div className="text-sm font-medium">Randomize new words</div>
-            <div className="text-xs text-muted-foreground">Shuffle the “Learn New” queue.</div>
+            <div className="text-xs text-muted-foreground">Shuffle the "Learn New" queue.</div>
           </div>
           <Switch checked={props.settings.randomizeNew} onCheckedChange={(v) => void update({ ...props.settings, randomizeNew: v })} />
         </div>
 
         <div className="space-y-2 sm:col-span-2">
-          <Label>Timed mode duration (seconds)</Label>
+          <Label className="text-sm font-medium">Timed mode duration (seconds)</Label>
           <Input
             type="number"
             min={15}
@@ -159,15 +160,18 @@ export function StudySettingsModal(props: {
                 void update({ ...props.settings, timedModeDuration: val });
               }
             }}
+            className="rounded-xl"
           />
         </div>
       </div>
 
       <Separator />
 
-      <div className="space-y-3">
-        <div className="text-sm font-medium">Collections</div>
-        <div className="text-xs text-muted-foreground">Limit study to selected collection tags (optional).</div>
+      <div className="space-y-4">
+        <div>
+          <div className="text-sm font-medium mb-1">Collections</div>
+          <div className="text-xs text-muted-foreground">Limit study to selected collection tags (optional).</div>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-56 overflow-y-auto pr-1">
           {tagOptions.map((t) => {
             const checked = selected.includes(t.slug);
@@ -176,12 +180,14 @@ export function StudySettingsModal(props: {
                 type="button"
                 key={t.slug}
                 onClick={() => void toggleCollection(t.slug)}
-                className={`text-left rounded-lg border px-3 py-2 text-sm transition-colors ${
-                  checked ? "border-accent bg-accent/10" : "border-border/60 hover:bg-secondary/30"
+                className={`text-left rounded-xl border px-4 py-3 text-sm transition-all duration-200 ${
+                  checked
+                    ? "border-accent bg-accent/10 shadow-sm"
+                    : "border-border/60 hover:bg-muted/50 hover:border-border"
                 }`}
               >
                 <div className="font-medium">{t.title}</div>
-                <div className="text-xs text-muted-foreground">{t.level}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{t.level}</div>
               </button>
             );
           })}
@@ -192,7 +198,7 @@ export function StudySettingsModal(props: {
 
       <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
         <div className="flex gap-3">
-          <Button variant="outline" disabled={busy} onClick={() => void onExport()}>
+          <Button variant="outline" disabled={busy} onClick={() => void onExport()} className="rounded-xl">
             Export progress JSON
           </Button>
           <label className="inline-flex">
@@ -207,18 +213,18 @@ export function StudySettingsModal(props: {
                 e.currentTarget.value = "";
               }}
             />
-            <Button asChild variant="outline" disabled={busy}>
+            <Button asChild variant="outline" disabled={busy} className="rounded-xl">
               <span>Import JSON</span>
             </Button>
           </label>
         </div>
-        <Button variant="destructive" disabled={busy} onClick={() => void onReset()}>
+        <Button variant="destructive" disabled={busy} onClick={() => void onReset()} className="rounded-xl">
           Reset progress
         </Button>
       </div>
 
       <div className="flex justify-end">
-        <Button onClick={props.onClose}>Done</Button>
+        <Button onClick={props.onClose} className="rounded-xl">Done</Button>
       </div>
     </div>
   );

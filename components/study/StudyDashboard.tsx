@@ -176,31 +176,31 @@ export function StudyDashboard(props: {
   };
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className="space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 flex-wrap">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">Study</h1>
-            <Badge variant="secondary" className="gap-1">
+        <div className="space-y-3">
+          <div className="flex items-center gap-3 flex-wrap">
+            <h1 className="text-3xl font-semibold tracking-tight">Study</h1>
+            <Badge variant="secondary" className="gap-1.5 rounded-full px-3 py-1">
               <Zap className="h-3.5 w-3.5" />
               Level {level}
             </Badge>
             {firebaseReady && user && (
               <div className="flex items-center gap-2">
                 {syncState === "syncing" && (
-                  <Badge variant="outline" className="gap-1.5 text-xs">
+                  <Badge variant="outline" className="gap-1.5 text-xs rounded-full">
                     <RefreshCw className="h-3 w-3 animate-spin" />
                     Syncing...
                   </Badge>
                 )}
                 {syncState === "success" && (
-                  <Badge variant="outline" className="gap-1.5 text-xs bg-green-50 text-green-700 border-green-200">
+                  <Badge variant="outline" className="gap-1.5 text-xs bg-green-50 dark:bg-green-950/20 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800 rounded-full">
                     <CheckCircle2 className="h-3 w-3" />
                     Synced
                   </Badge>
                 )}
                 {syncState === "error" && (
-                  <Badge variant="outline" className="gap-1.5 text-xs bg-red-50 text-red-700 border-red-200">
+                  <Badge variant="outline" className="gap-1.5 text-xs bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800 rounded-full">
                     <XCircle className="h-3 w-3" />
                     Sync failed
                   </Badge>
@@ -208,7 +208,7 @@ export function StudyDashboard(props: {
               </div>
             )}
           </div>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl">
+          <p className="text-base text-muted-foreground max-w-2xl">
             Anki-like spaced repetition, local-first and offline-capable. Your progress is stored on this device and can
             sync to Firebase when you sign in.
           </p>
@@ -216,14 +216,14 @@ export function StudyDashboard(props: {
 
         <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
           <DialogTrigger asChild>
-            <Button variant="outline" className="gap-2 w-full sm:w-auto">
+            <Button variant="outline" className="gap-2 rounded-xl w-full sm:w-auto">
               <Settings2 className="h-4 w-4" />
               Settings
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl">
             <DialogHeader>
-              <DialogTitle>Study Settings</DialogTitle>
+              <DialogTitle className="text-xl font-semibold">Study Settings</DialogTitle>
             </DialogHeader>
             <StudySettingsModal
               vocab={props.vocab}
@@ -237,29 +237,29 @@ export function StudyDashboard(props: {
         </Dialog>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        <Card className="p-4 sm:p-5">
-          <div className="text-sm text-muted-foreground">Due today</div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card className="rounded-2xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
+          <div className="text-sm font-medium text-muted-foreground mb-1">Due today</div>
           <div className="text-3xl font-semibold mt-2">{stats.due}</div>
         </Card>
-        <Card className="p-4 sm:p-5">
-          <div className="text-sm text-muted-foreground">Weak words</div>
+        <Card className="rounded-2xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
+          <div className="text-sm font-medium text-muted-foreground mb-1">Weak words</div>
           <div className="text-3xl font-semibold mt-2">{stats.weak}</div>
         </Card>
-        <Card className="p-4 sm:p-5">
-          <div className="text-sm text-muted-foreground">New words available</div>
+        <Card className="rounded-2xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
+          <div className="text-sm font-medium text-muted-foreground mb-1">New words available</div>
           <div className="text-3xl font-semibold mt-2">{stats.fresh}</div>
         </Card>
-        <Card className="p-4 sm:p-5">
-          <div className="text-sm text-muted-foreground">Total XP</div>
+        <Card className="rounded-2xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
+          <div className="text-sm font-medium text-muted-foreground mb-1">Total XP</div>
           <div className="text-3xl font-semibold mt-2">{props.analytics.totalXP}</div>
         </Card>
       </div>
 
-      <Card className="p-5 sm:p-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <Card className="rounded-2xl shadow-sm border p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="text-lg font-semibold">Sync</div>
+            <div className="text-lg font-medium">Sync</div>
             <div className="text-sm text-muted-foreground">
               {firebaseReady ? (
                 user ? (
@@ -283,7 +283,7 @@ export function StudyDashboard(props: {
                   variant="outline"
                   disabled={syncState === "syncing"}
                   onClick={() => void handleManualSync()}
-                  className="gap-2"
+                  className="gap-2 rounded-xl"
                 >
                   {syncState === "syncing" ? (
                     <>
@@ -302,18 +302,18 @@ export function StudyDashboard(props: {
                     variant="outline"
                     size="sm"
                     onClick={() => void handleManualSync()}
-                    className="gap-1.5 text-xs"
+                    className="gap-1.5 text-xs rounded-xl"
                   >
                     <AlertCircle className="h-3 w-3" />
                     Retry
                   </Button>
                 )}
-                <Button variant="outline" disabled={syncState === "syncing"} onClick={() => void signOutUser()}>
+                <Button variant="outline" disabled={syncState === "syncing"} onClick={() => void signOutUser()} className="rounded-xl">
                   Sign out
                 </Button>
               </>
             ) : (
-              <Button disabled={!firebaseReady} onClick={() => void signInWithGoogle()} className="w-full sm:w-auto">
+              <Button disabled={!firebaseReady} onClick={() => void signInWithGoogle()} className="w-full sm:w-auto rounded-xl">
                 Sign in with Google
               </Button>
             )}
@@ -322,60 +322,64 @@ export function StudyDashboard(props: {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="p-5 sm:p-6">
+        <Card className="rounded-2xl shadow-sm border p-6">
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-1">
-              <div className="text-lg font-semibold">Core modes</div>
+              <div className="text-xl font-medium">Core modes</div>
               <div className="text-sm text-muted-foreground">Fast start based on what matters most.</div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
-            <Button onClick={() => start("learn-new")} className="justify-between">
-              Learn New <span className="text-xs opacity-80">cap {props.settings.newPerDay}/day</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+            <Button onClick={() => start("learn-new")} className="justify-between rounded-xl h-auto py-3 hover:scale-[1.02] transition-transform duration-200">
+              <span className="font-medium">Learn New</span>
+              <span className="text-xs opacity-70">cap {props.settings.newPerDay}/day</span>
             </Button>
-            <Button variant="secondary" onClick={() => start("review-due")} className="justify-between">
-              Review Due <span className="text-xs opacity-80">{stats.due}</span>
+            <Button variant="secondary" onClick={() => start("review-due")} className="justify-between rounded-xl h-auto py-3 hover:scale-[1.02] transition-transform duration-200">
+              <span className="font-medium">Review Due</span>
+              <span className="text-xs opacity-70">{stats.due}</span>
             </Button>
-            <Button variant="secondary" onClick={() => start("weak-words")} className="justify-between">
-              Weak Words <span className="text-xs opacity-80">{stats.weak}</span>
+            <Button variant="secondary" onClick={() => start("weak-words")} className="justify-between rounded-xl h-auto py-3 hover:scale-[1.02] transition-transform duration-200">
+              <span className="font-medium">Weak Words</span>
+              <span className="text-xs opacity-70">{stats.weak}</span>
             </Button>
-            <Button variant="secondary" onClick={() => start("mastery-push")} className="justify-between">
-              Mastery Push <span className="text-xs opacity-80">familiar/weak</span>
+            <Button variant="secondary" onClick={() => start("mastery-push")} className="justify-between rounded-xl h-auto py-3 hover:scale-[1.02] transition-transform duration-200">
+              <span className="font-medium">Mastery Push</span>
+              <span className="text-xs opacity-70">familiar/weak</span>
             </Button>
           </div>
         </Card>
 
-        <Card className="p-5 sm:p-6">
+        <Card className="rounded-2xl shadow-sm border p-6">
           <div className="space-y-1">
-            <div className="text-lg font-semibold">Custom & practice</div>
+            <div className="text-xl font-medium">Custom & practice</div>
             <div className="text-sm text-muted-foreground">Target a collection tag or just drill randomly.</div>
           </div>
 
-          <div className="mt-5 grid gap-3">
+          <div className="mt-6 grid gap-4">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <Button variant="secondary" onClick={() => start("random-practice")}>
+              <Button variant="secondary" onClick={() => start("random-practice")} className="rounded-xl h-auto py-3 hover:scale-[1.02] transition-transform duration-200">
                 Full random
               </Button>
-              <Button variant="secondary" onClick={() => start("timed")}>
+              <Button variant="secondary" onClick={() => start("timed")} className="rounded-xl h-auto py-3 hover:scale-[1.02] transition-transform duration-200">
                 Timed ({props.settings.timedModeDuration}s)
               </Button>
-              <Button variant="outline" onClick={() => start("review-due")}>
+              <Button variant="outline" onClick={() => start("review-due")} className="rounded-xl h-auto py-3 hover:scale-[1.02] transition-transform duration-200">
                 Mixed review
               </Button>
             </div>
 
-            <div className="rounded-lg border border-border/60 p-3">
-              <div className="text-xs font-medium text-muted-foreground mb-2">Custom by tag</div>
+            <div className="rounded-xl border border-border/60 p-4 bg-muted/30">
+              <div className="text-xs font-medium text-muted-foreground mb-3 uppercase tracking-wide">Custom by tag</div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Select
                   value={customTagSlug ?? ""}
                   onValueChange={(v) => dispatch(setMode({ mode: "custom-tag", customTagSlug: v }))}
                 >
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full rounded-xl">
                     <SelectValue placeholder="Pick a collection tag…" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="rounded-xl">
                     {availableTags.map((t) => (
                       <SelectItem key={t.slug} value={t.slug}>
                         {t.title}
@@ -386,7 +390,7 @@ export function StudyDashboard(props: {
                 <Button
                   disabled={!customTagSlug}
                   onClick={() => start("custom-tag", customTagSlug)}
-                  className="shrink-0"
+                  className="shrink-0 rounded-xl"
                 >
                   Start
                 </Button>
@@ -397,17 +401,17 @@ export function StudyDashboard(props: {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="p-5 sm:p-6">
+        <Card className="rounded-2xl shadow-sm border p-6">
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <div className="text-lg font-semibold">Progress</div>
+              <div className="text-xl font-medium">Progress</div>
               <div className="text-sm text-muted-foreground">
                 Streak: <span className="font-semibold text-foreground">{props.analytics.dailyStreak}</span> days • Words learned:{" "}
                 <span className="font-semibold text-foreground">{props.analytics.wordsLearned}</span>
               </div>
             </div>
           </div>
-          <div className="mt-4">
+          <div className="mt-6">
             <ChartContainer
               className="h-[220px] w-full"
               config={{
@@ -415,18 +419,18 @@ export function StudyDashboard(props: {
               }}
             >
               <BarChart data={last7Days} margin={{ left: 8, right: 8, top: 10, bottom: 0 }}>
-                <CartesianGrid vertical={false} />
-                <XAxis dataKey="label" tickLine={false} axisLine={false} />
-                <YAxis tickLine={false} axisLine={false} width={28} />
+                <CartesianGrid vertical={false} strokeDasharray="3 3" className="stroke-muted" />
+                <XAxis dataKey="label" tickLine={false} axisLine={false} className="text-xs" />
+                <YAxis tickLine={false} axisLine={false} width={28} className="text-xs" />
                 <ChartTooltip content={<ChartTooltipContent />} />
-                <Bar dataKey="xp" fill="var(--color-xp)" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="xp" fill="var(--color-xp)" radius={[8, 8, 0, 0]} />
               </BarChart>
             </ChartContainer>
           </div>
         </Card>
-        <Card className="p-5 sm:p-6">
-          <div className="text-lg font-semibold">Tips</div>
-          <div className="text-sm text-muted-foreground mt-2 space-y-2">
+        <Card className="rounded-2xl shadow-sm border p-6">
+          <div className="text-xl font-medium mb-4">Tips</div>
+          <div className="text-sm text-muted-foreground space-y-3">
             <div>
               - Use <span className="font-medium text-foreground">Again</span> sparingly; it drops confidence faster and schedules a quick relearn.
             </div>
