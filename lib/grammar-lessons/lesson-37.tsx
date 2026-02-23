@@ -2,199 +2,283 @@
 import type React from "react";
 import { useState } from "react";
 import {
-  Wallet,
-  Users,
-  CreditCard,
-  Split,
-  PiggyBank,
-  Calendar,
   CheckCircle2,
-  Info,
-  DollarSign,
-  ArrowRight,
-  ShoppingCart,
-  Receipt
+  AlertCircle,
+  Zap,
+  Clock,
+  BookOpen,
+  Send,
+  HelpCircle,
+  Layout,
 } from "lucide-react";
 
-const GrammarLesson37: React.FC = () => {
+const grammar_lesson_37 = () => {
   const [userInputs, setUserInputs] = useState<{ [key: string]: string }>({});
-  const [feedback, setFeedback] = useState<{ [key: string]: boolean | null }>({});
+  const [feedback, setFeedback] = useState<{
+    [key: string]: "correct" | "incorrect" | null;
+  }>({});
 
   const handleInputChange = (id: string, val: string) => {
     setUserInputs((prev) => ({ ...prev, [id]: val.toLowerCase().trim() }));
   };
 
-  const checkAnswer = (id: string, correct: string[]) => {
-    const input = userInputs[id] || "";
+  const checkAnswer = (id: string, correct: string) => {
+    const isCorrect = userInputs[id] === correct.toLowerCase().trim();
     setFeedback((prev) => ({
       ...prev,
-      [id]: correct.some(ans => ans.toLowerCase().trim() === input),
+      [id]: isCorrect ? "correct" : "incorrect",
     }));
   };
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-10 sm:py-16 bg-background text-foreground space-y-16 sm:space-y-24 antialiased font-sans overflow-x-hidden">
-
-      {/* SECTION 1: SOCIAL PAYMENTS */}
-      <section className="space-y-8">
-        <div className="flex items-center gap-3 border-b-2 border-emerald-500 pb-2 w-fit">
-          <Users size={24} className="text-emerald-500" />
-          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tighter">I. Social Context: Splitting the Bill</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="border border-border rounded-2xl p-6 bg-muted/5 space-y-4 hover:shadow-md transition-shadow">
-            <div className="flex justify-between items-start">
-              <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-600"><Split size={20} /></div>
-              <span className="text-[10px] font-mono opacity-40 italic">EQUAL SPLIT</span>
-            </div>
-            <h3 className="text-xl font-black">Pagar a medias</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">Everyone pays the same amount, regardless of what they ate.</p>
-            <div className="p-3 bg-background rounded-xl border border-dashed border-emerald-200">
-              <p className="text-[11px] font-bold text-emerald-700 italic">"Pagamos a medias la cena."</p>
-            </div>
-          </div>
-
-          <div className="border border-border rounded-2xl p-6 bg-muted/5 space-y-4 hover:shadow-md transition-shadow">
-            <div className="flex justify-between items-start">
-              <div className="p-2 bg-blue-500/10 rounded-lg text-blue-600"><Receipt size={20} /></div>
-              <span className="text-[10px] font-mono opacity-40 italic">LOGISTICS</span>
-            </div>
-            <h3 className="text-xl font-black">Dividir la cuenta</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">Similar to medias, but focuses on the physical act of splitting the check.</p>
-            <div className="p-3 bg-background rounded-xl border border-dashed border-blue-200">
-              <p className="text-[11px] font-bold text-blue-700 italic">"¿Podemos dividir la cuenta?"</p>
-            </div>
-          </div>
-
-          <div className="border border-border rounded-2xl p-6 bg-muted/5 space-y-4 hover:shadow-md transition-shadow">
-            <div className="flex justify-between items-start">
-              <div className="p-2 bg-amber-500/10 rounded-lg text-amber-600"><DollarSign size={20} /></div>
-              <span className="text-[10px] font-mono opacity-40 italic">INDIVIDUAL</span>
-            </div>
-            <h3 className="text-xl font-black italic text-sm leading-tight">Pagar cada uno su consumición</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">You pay for your steak; I pay for my water. No subsidies!</p>
-            <div className="p-3 bg-background rounded-xl border border-dashed border-amber-200">
-              <p className="text-[11px] font-bold text-amber-700 italic">"Mejor pagamos cada uno lo suyo."</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 2: GROUP & TIME PAYMENTS */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-        <div className="space-y-6">
-          <div className="flex items-center gap-3">
-            <PiggyBank size={22} className="text-indigo-500" />
-            <h2 className="text-lg font-black uppercase tracking-tight">II. Poner bote (Before Buying)</h2>
-          </div>
-          <div className="p-6 bg-indigo-500/5 border-2 border-indigo-500/10 rounded-3xl space-y-4">
-            <p className="text-sm font-medium">Common for parties or group gifts. Everyone chips in money <b>before</b> the purchase is made.</p>
-            <p className="text-sm italic font-black text-indigo-800">"Ponemos bote para la fiesta."</p>
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          <div className="flex items-center gap-3">
-            <Calendar size={22} className="text-rose-500" />
-            <h2 className="text-lg font-black uppercase tracking-tight">III. Pagar a plazos (Financing)</h2>
-          </div>
-          <div className="p-6 bg-rose-500/5 border-2 border-rose-500/10 rounded-3xl space-y-4">
-            <p className="text-sm font-medium">Paying in installments over months/years. Used for expensive items like cars or phones.</p>
-            <p className="text-sm italic font-black text-rose-800">"Compramos el móvil a plazos."</p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: THE PAYMENT MATRIX */}
-      <section className="space-y-8">
-        <div className="flex items-center gap-3">
-          <Info size={22} className="text-slate-500" />
-          <h2 className="text-lg font-black uppercase tracking-tight">IV. The Payment Matrix</h2>
-        </div>
-        <div className="overflow-x-auto rounded-2xl border border-border shadow-sm">
-          <table className="w-full text-left border-collapse min-w-[600px]">
-            <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-widest border-b">
-              <tr>
-                <th className="px-6 py-4">Expression</th>
-                <th className="px-6 py-4">Equal Amount?</th>
-                <th className="px-6 py-4">Timing</th>
-                <th className="px-6 py-4">Context</th>
-              </tr>
-            </thead>
-            <tbody className="text-sm">
-              <tr className="border-b hover:bg-muted/30">
-                <td className="px-6 py-4 font-black text-emerald-600">Pagar a medias</td>
-                <td className="px-6 py-4">Yes</td>
-                <td className="px-6 py-4">After</td>
-                <td className="px-6 py-4 opacity-70 italic">Dining with a best friend</td>
-              </tr>
-              <tr className="border-b hover:bg-muted/30">
-                <td className="px-6 py-4 font-black text-amber-600">Cada uno lo suyo</td>
-                <td className="px-6 py-4">No</td>
-                <td className="px-6 py-4">After</td>
-                <td className="px-6 py-4 opacity-70 italic">Bar/Casual snacks</td>
-              </tr>
-              <tr className="border-b hover:bg-muted/30">
-                <td className="px-6 py-4 font-black text-indigo-600">Poner bote</td>
-                <td className="px-6 py-4">Yes (Fixed)</td>
-                <td className="px-6 py-4">Before</td>
-                <td className="px-6 py-4 opacity-70 italic">Purchasing party drinks</td>
-              </tr>
-              <tr className="hover:bg-muted/30">
-                <td className="px-6 py-4 font-black text-rose-600">Pagar a plazos</td>
-                <td className="px-6 py-4">No (Divided)</td>
-                <td className="px-6 py-4">Over Time</td>
-                <td className="px-6 py-4 opacity-70 italic">Buying a laptop</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* SECTION 4: PAYMENT LAB (RESPONSIVE FIX) */}
-      <section className="bg-slate-900 text-slate-50 p-6 sm:p-12 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl space-y-10">
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em]">Active Drill</div>
-          <h2 className="text-3xl sm:text-5xl font-black italic tracking-tighter uppercase">Payment Lab</h2>
-          <p className="text-slate-400 text-xs sm:text-sm uppercase tracking-widest font-bold">Choose the correct payment method for the scenario</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
-          {[
-            { id: "p1", q: "We all give 10€ before buying drinks.", a: ["Poner bote"], type: "Group Action" },
-            { id: "p2", q: "We split the restaurant bill equally.", a: ["Pagar a medias", "Dividir la cuenta"], type: "Equal Split" },
-            { id: "p3", q: "I pay for my own food only.", a: ["Pagar cada uno su consumición", "Pagar cada uno lo suyo"], type: "Individual" },
-            { id: "p4", q: "I pay the car over 12 months.", a: ["Pagar a plazos"], type: "Installments" },
-            { id: "p5", q: "Everyone contributes money before buying a gift.", a: ["Poner bote"], type: "Pre-payment" },
-            { id: "p6", q: "Dividing the check specifically at a restaurant.", a: ["Dividir la cuenta"], type: "The Bill" },
-          ].map((item) => (
-            <div key={item.id} className="bg-slate-800/40 p-5 rounded-2xl border border-slate-700/50 hover:border-emerald-500/50 transition-all flex flex-col justify-between space-y-4">
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest">{item.type}</span>
-                  {feedback[item.id] !== undefined && (
-                    <span className={`text-[10px] font-black px-2 py-0.5 rounded ${feedback[item.id] ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'}`}>
-                      {feedback[item.id] ? 'CORRECT' : 'WRONG'}
-                    </span>
-                  )}
-                </div>
-                <p className="text-sm font-bold italic leading-relaxed">"{item.q}"</p>
+    <div className="mx-auto w-full max-w-4xl space-y-12 px-6 pb-40 pt-10 bg-background text-foreground font-sans transition-colors duration-300">
+      {/* 2 & 3. CONSTRUCTION */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-bold flex items-center gap-2">
+          <Layout className="text-indigo-500" /> Structure & Conjugation
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="p-6 rounded-2xl bg-card border border-border shadow-sm">
+            <h3 className="text-xs font-black uppercase tracking-widest text-indigo-500 mb-4">
+              Estar (Imperfect)
+            </h3>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between border-b pb-1">
+                <span>yo</span>
+                <span className="font-bold text-indigo-500">estaba</span>
               </div>
+              <div className="flex justify-between border-b pb-1">
+                <span>tú</span>
+                <span className="font-bold text-indigo-500">estabas</span>
+              </div>
+              <div className="flex justify-between border-b pb-1">
+                <span>él / ella / usted</span>
+                <span className="font-bold text-indigo-500">estaba</span>
+              </div>
+              <div className="flex justify-between border-b pb-1">
+                <span>nosotros/as</span>
+                <span className="font-bold text-indigo-500">estábamos</span>
+              </div>
+              <div className="flex justify-between border-b pb-1">
+                <span>vosotros/as</span>
+                <span className="font-bold text-indigo-500">estabais</span>
+              </div>
+              <div className="flex justify-between">
+                <span>ellos / ellas / uds</span>
+                <span className="font-bold text-indigo-500">estaban</span>
+              </div>
+            </div>
+          </div>
+          <div className="p-6 rounded-2xl bg-card border border-border shadow-sm">
+            <h3 className="text-xs font-black uppercase tracking-widest text-emerald-500 mb-4">
+              Gerund Formation
+            </h3>
+            <div className="space-y-4 text-sm">
+              <div className="p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/10">
+                <p className="font-bold">-AR verbs → -ando</p>
+                <p className="italic opacity-70">hablar → hablando</p>
+              </div>
+              <div className="p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/10">
+                <p className="font-bold">-ER / -IR verbs → -iendo</p>
+                <p className="italic opacity-70">
+                  comer → comiendo | vivir → viviendo
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="flex flex-col sm:flex-row gap-2">
+      {/* 4. IRREGULARS */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-bold flex items-center gap-2">
+          <Zap className="text-amber-500" /> Critical Irregulars
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-5 rounded-xl border border-border bg-card">
+            <h4 className="text-xs font-bold uppercase text-amber-600 mb-3">
+              A. Stem-Changing -ir
+            </h4>
+            <ul className="text-sm grid grid-cols-2 gap-2 italic">
+              <li>pedir → pidiendo</li>
+              <li>decir → diciendo</li>
+              <li>dormir → durmiendo</li>
+              <li>morir → muriendo</li>
+              <li>sentir → sintiendo</li>
+            </ul>
+          </div>
+          <div className="p-5 rounded-xl border border-border bg-card">
+            <h4 className="text-xs font-bold uppercase text-amber-600 mb-3">
+              B. Spelling Changes (-yendo)
+            </h4>
+            <ul className="text-sm grid grid-cols-2 gap-2 italic">
+              <li>leer → leyendo</li>
+              <li>creer → creyendo</li>
+              <li>oír → oyendo</li>
+              <li>traer → trayendo</li>
+              <li>caer → cayendo</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. EXAMPLES BANK */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-bold flex items-center gap-2">
+          <BookOpen className="text-sky-500" /> Conjugation Examples
+        </h2>
+        <div className="flex flex-wrap gap-3">
+          {[
+            "Yo estaba hablando",
+            "Tú estabas comiendo",
+            "Él estaba durmiendo",
+            "Nosotros estábamos hablando",
+            "Ellos estaban leyendo",
+          ].map((ex) => (
+            <span
+              key={ex}
+              className="px-4 py-2 bg-muted rounded-lg text-sm font-medium border border-border"
+            >
+              {ex}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* 6. USE CASES */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-bold flex items-center gap-2">
+          <Clock className="text-indigo-500" /> Core Use Cases
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "Specific Moments",
+              items: [
+                "Estaba trabajando en la oficina.",
+                "A las diez estaba estudiando.",
+              ],
+            },
+            {
+              title: "Interrupted Action",
+              items: [
+                "Estaba caminando cuando empezó a llover.",
+                "Estaba durmiendo cuando sonó el teléfono.",
+              ],
+            },
+            {
+              title: "Parallel Actions",
+              items: [
+                "Yo estaba trabajando y él estaba descansando.",
+                "Ella estaba leyendo mientras yo tomaba notas.",
+              ],
+            },
+            {
+              title: "Emphasis on Duration",
+              items: [
+                "Estaban analizando la situación toda la mañana.",
+                "Estaba aprendiendo mucho en ese período.",
+              ],
+            },
+          ].map((cat) => (
+            <div
+              key={cat.title}
+              className="p-6 rounded-2xl border border-border bg-muted/20"
+            >
+              <h3 className="text-sm font-black uppercase mb-3 text-indigo-600">
+                {cat.title}
+              </h3>
+              <ul className="space-y-2 text-sm italic opacity-80">
+                {cat.items.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 7 & 8. HARD RULES */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="p-6 bg-rose-500/5 border border-rose-500/20 rounded-2xl space-y-3">
+          <h3 className="text-sm font-black uppercase text-rose-600 flex items-center gap-2">
+            <AlertCircle size={16} /> Imperfect vs Continuous
+          </h3>
+          <p className="text-xs leading-relaxed italic">
+            Use <b>Imperfect</b> for general background. Use{" "}
+            <b>Past Continuous</b> only to emphasize the active, unfolding
+            process.
+          </p>
+        </div>
+        <div className="p-6 bg-rose-600 text-white rounded-2xl space-y-3 shadow-md">
+          <h3 className="text-sm font-black uppercase flex items-center gap-2 text-rose-100">
+            <AlertCircle size={16} /> The Hard Rule
+          </h3>
+          <p className="text-xs leading-relaxed">
+            Never use past continuous for completed actions. <b>Incorrect:</b>{" "}
+            "Estaba llegando." <b>Correct:</b> "Llegué."
+          </p>
+        </div>
+      </section>
+
+      {/* 9 & 10. FORM & ORDER */}
+      <section className="p-8 rounded-3xl border border-border bg-card space-y-6">
+        <h2 className="text-2xl font-bold">Negative, Questions & Order</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+          <div>
+            <p className="font-bold text-indigo-500 mb-2">Negation</p>
+            <p className="italic opacity-80">No estaba escuchando.</p>
+          </div>
+          <div>
+            <p className="font-bold text-indigo-500 mb-2">Questions</p>
+            <p className="italic opacity-80">¿Qué estabas haciendo?</p>
+          </div>
+          <div>
+            <p className="font-bold text-indigo-500 mb-2">Word Order</p>
+            <p className="italic opacity-80 underline">Standard:</p>
+            <p className="text-[11px] opacity-70">Estar + Gerund + Object</p>
+          </div>
+        </div>
+      </section>
+
+      {/* DRILLS */}
+      <section className="space-y-8 pt-8 border-t border-border">
+        <h2 className="text-3xl font-black text-center">Interactive Drills</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            {
+              id: "q1",
+              q: "Yo (trabajar) cuando llamaste.",
+              a: "estaba trabajando",
+            },
+            {
+              id: "q2",
+              q: "Ellos (dormir) a las diez.",
+              a: "estaban durmiendo",
+            },
+            {
+              id: "q3",
+              q: "Nosotros (estudiar) en la sala.",
+              a: "estábamos estudiando",
+            },
+            { id: "q4", q: "Él (leer) el informe.", a: "estaba leyendo" },
+          ].map((item) => (
+            <div
+              key={item.id}
+              className="p-4 bg-card rounded-xl border border-border flex items-center justify-between gap-4"
+            >
+              <span className="text-sm font-medium">{item.q}</span>
+              <div className="flex gap-2">
                 <input
                   type="text"
-                  placeholder="Escribe aquí..."
-                  className="flex-1 bg-slate-950/50 border border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+                  className="w-32 bg-muted border-none rounded px-2 py-1 text-xs outline-none focus:ring-1 ring-indigo-500"
                   onChange={(e) => handleInputChange(item.id, e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && checkAnswer(item.id, item.a)}
                 />
                 <button
                   onClick={() => checkAnswer(item.id, item.a)}
-                  className="bg-emerald-600 hover:bg-emerald-500 text-white h-10 sm:w-12 rounded-xl flex items-center justify-center transition-all active:scale-95 shadow-lg shadow-emerald-900/20"
+                  className="text-indigo-600 hover:scale-110 transition-transform"
                 >
-                  <ArrowRight size={18} />
+                  <CheckCircle2 size={20} />
                 </button>
               </div>
             </div>
@@ -202,29 +286,18 @@ const GrammarLesson37: React.FC = () => {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="pt-12 border-t border-border grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <div className="space-y-3">
-          <h4 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground"><Wallet size={14} /> Real-Life Phrases</h4>
-          <ul className="text-sm font-bold space-y-1.5 italic opacity-80">
-            <li>• ¿Pagamos a medias?</li>
-            <li>• ¿Dividimos la cuenta?</li>
-            <li>• ¿Cada uno paga lo suyo?</li>
-          </ul>
-        </div>
-        <div className="space-y-3">
-          <h4 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground"><CreditCard size={14} /> Shop Questions</h4>
-          <ul className="text-sm font-bold space-y-1.5 italic opacity-80">
-            <li>• ¿Se puede pagar a plazos?</li>
-            <li>• ¿Ponemos bote?</li>
-          </ul>
-        </div>
-        <div className="flex items-end justify-end opacity-30 text-[10px] font-mono uppercase tracking-[0.2em] text-right">
-          Lesson 37: Financial & Social Logic
-        </div>
+      {/* FINAL SUMMARY */}
+      <footer className="p-10 bg-indigo-600 text-white rounded-[2rem] text-center shadow-lg">
+        <h3 className="text-xs font-black uppercase tracking-widest mb-4 opacity-70">
+          The Bottom Line
+        </h3>
+        <p className="text-lg font-medium max-w-2xl mx-auto italic">
+          "Prefer the simple imperfect unless the process matters. Never use
+          this for completed events."
+        </p>
       </footer>
     </div>
   );
 };
 
-export default GrammarLesson37;
+export default grammar_lesson_37;

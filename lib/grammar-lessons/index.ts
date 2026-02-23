@@ -30,11 +30,11 @@ import grammar_lesson_29 from "./lesson-29"
 import grammar_lesson_30 from "./lesson-30"
 import grammar_lesson_31 from "./lesson-31"
 import grammar_lesson_32 from "./lesson-32"
-import grammar_lesson_33 from "./lesson-33"
 import grammar_lesson_34 from "./lesson-34"
 import grammar_lesson_35 from "./lesson-35"
 import grammar_lesson_36 from "./lesson-36"
 import grammar_lesson_37 from "./lesson-37"
+import grammar_lesson_33 from "./lesson-33"
 
 export interface GrammarLesson {
   slug: string
@@ -466,45 +466,12 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
     component: grammar_lesson_27,
   }, {
     slug: "lesson-28",
-    title: "Lesson 28: Mastery of El Pretérito Indefinido (Bonus lesson)",
-    level: "A1.4",
-    description:
-      "A deep dive into the logic of the Spanish past tense. Covers regular forms, the collapse of present-tense stem changes, the 'Strong Preterite' system, J-stems, sandal verbs, and orthographic repairs.",
-    searchContent: `
-      Spanish preterite indefinido lesson 28
-      regular AR ER IR preterite conjugation
-      strong preterite stems tuv pud pus quis vin
-      Spanish sandal verbs e to i o to u preterite
-      ser vs ir preterite conjugation fui
-      orthographic changes car gar zar preterite
-      Spanish past tense logic and stress patterns
-    `,
-    component: grammar_lesson_28,
-  }, {
-    slug: "lesson-29",
-    title: "Lesson 29: El Pretérito Imperfecto Progresivo (Bonus Lesson)",
-    level: "A1.4",
-    description:
-      "A comprehensive guide to the Spanish Past Continuous. Master the construction of Estar (Imperfect) + Gerund, including critical stem-changing -ir verbs, orthographic 'y' insertions, and the essential distinctions between the Past Continuous, Imperfect, and Preterite.",
-    searchContent: `
-      Spanish past continuous lesson 29
-      pretérito imperfecto progresivo conjugation
-      estar imperfecto plus gerundio
-      irregular gerunds Spanish pidiendo durmiendo leyendo
-      past continuous vs imperfect vs preterite Spanish
-      interrupted actions in the past Spanish grammar
-      parallel actions in the past Spanish
-      gerund formation rules -ando -iendo -yendo
-    `,
-    component: grammar_lesson_29,
-  }, {
-    slug: "lesson-30",
-    title: "Lesson 30: El Imperativo (Imperative Mood)",
+    title: "Lesson 28: El Imperativo (Imperative Mood)",
     level: "A1.4",
     description:
       "Master the Spanish imperative mood through a responsive card-based system. Learn regular forms, stem-changing (ie, ue, i), spelling changes, and complex irregulars like 'hacer' and 'ir', alongside reflexive pronoun placement rules.",
     searchContent: `
-      Spanish imperative commands lesson 30
+      Spanish imperative commands lesson 28
       mandatos regulares e irregulares
       imperative stem change e-ie o-ue e-i u-ue
       orthographic change imperative car gar zar
@@ -512,15 +479,15 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       reflexive commands accent marks levántate acuéstate
       tú usted ustedes vosotros imperative endings
     `,
-    component: grammar_lesson_30,
+    component: grammar_lesson_28,
   }, {
-    slug: "lesson-31",
-    title: "Lesson 31: Negation in Spanish",
+    slug: "lesson-29",
+    title: "Lesson 29: Negation in Spanish",
     level: "A1.4",
     description:
       "Master the nuances of Spanish negation. This lesson covers weak/neutral negation (no, nunca), strong emotional negation (¡Ni hablar!, ¡Que no!), and the essential rules of mandatory double negation in Spanish sentences.",
     searchContent: `
-      Spanish negation lesson 31
+      Spanish negation lesson 29
       weak negation vs strong negation Spanish
       double negation Spanish grammar rules
       ni hablar meaning and usage
@@ -529,30 +496,30 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       no... nada nadie nunca examples
       Spanish negative expressions practice
     `,
-    component: grammar_lesson_31,
+    component: grammar_lesson_29,
   }, {
-    slug: "lesson-32",
-    title: "Lesson 32: Opinions in Spanish",
+    slug: "lesson-30",
+    title: "Lesson 30: Opinions in Spanish",
     level: "A1.4",
     description:
       "Learn to ask for and give opinions in Spanish using structures like '¿Qué te parece?' and 'Creo que'. Master the agreement rules for the verb 'parecer' and practice expressing your thoughts clearly.",
     searchContent: `
-      Spanish opinions lesson 32
+      Spanish opinions lesson 30
       asking for opinions Spanish qué opinas qué te parece
       giving opinions Spanish creo que a mí me parece opino que
       verb parecer agreement singular plural
       Spanish grammar opinions and agreement
       practice exercises opinions Spanish
     `,
-    component: grammar_lesson_32,
+    component: grammar_lesson_30,
   }, {
-    slug: "lesson-33",
-    title: "Lesson 33: Pretérito Perfecto (Present Perfect)",
+    slug: "lesson-31",
+    title: "Lesson 31: Pretérito Perfecto (Present Perfect)",
     level: "A1.4",
     description:
       "Master the Spanish Pretérito Perfecto. Learn to conjugate the auxiliary verb 'haber', form regular and irregular past participles, and understand the difference between the verb tense and its use as an adjective.",
     searchContent: `
-      Spanish Present Perfect Pretérito Perfecto lesson 33
+      Spanish Present Perfect Pretérito Perfecto lesson 31
       conjugating haber yo he tú has él ha nosotros hemos
       past participle ado ido irregulars
       abrir abierto decir dicho hacer hecho ver visto romper roto
@@ -560,15 +527,15 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       reflexive verbs with pretérito perfecto
       past participle as adjective conocido vs he conocido
     `,
-    component: grammar_lesson_33,
+    component: grammar_lesson_31,
   }, {
-    slug: "lesson-34",
-    title: "Lesson 34: Numbers From 200 and Upward",
+    slug: "lesson-32",
+    title: "Lesson 32: Numbers From 200 and Upward",
     level: "A1.4",
     description:
       "An in-depth guide to large Spanish numbers. Explains gender agreement rules, irregular hundreds (500, 700, 900), and the 'Long Scale' system used for millions and billions.",
     searchContent: `
-      Spanish numbers 200 to billions lesson 34
+      Spanish numbers 200 to billions lesson 32
       quinientos setecientos novecientos irregulars
       mil vs un mil rules
       millón vs millones agreement
@@ -577,28 +544,65 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       trillions in spanish un billón
       complex large numbers reading
     `,
-    component: grammar_lesson_34,
+    component: grammar_lesson_32,
   }, {
-    "slug": "lesson-35-indefinite-words-masterclass",
-    "title": "Lesson 35 Masterclass: Indefinite Words",
+    "slug": "lesson-33-indefinite-words-masterclass",
+    "title": "Lesson 33 Masterclass: Indefinite Words",
     "level": "A1.4",
     "description": "Comprehensive analysis of Spanish non-specific reference: The categorical divide between humans, objects, and quantified nouns.",
-    "searchContent": "comprehensive Spanish indefinite words, alguien vs nadie deep dive, algo vs nada mechanics, alguno vs algún rules, Spanish double negation logic, indefinite adjectives feminine plural, Spanish grammar lesson 35",
-    "component": grammar_lesson_35
+    "searchContent": "comprehensive Spanish indefinite words, alguien vs nadie deep dive, algo vs nada mechanics, alguno vs algún rules, Spanish double negation logic, indefinite adjectives feminine plural, Spanish grammar lesson 33",
+    "component": grammar_lesson_33
   },
   {
-    "slug": "lesson-36-discourse-organizers-connectors",
-    "title": "Lesson 36: Discourse Organizers",
+    "slug": "lesson-34-discourse-organizers-connectors",
+    "title": "Lesson 34: Discourse Organizers",
     "level": "A2.1",
     "description": "A comprehensive guide to Spanish connectors (Organizadores del discurso) to structure ideas, show contrast, result, and conclusion effectively.",
     "searchContent": "Spanish discourse organizers, Spanish connectors, Pero vs Sin embargo, Así que vs Por tanto, Spanish transition words, interactive Spanish grammar lesson, connecting ideas in Spanish",
-    "component": grammar_lesson_36
+    "component": grammar_lesson_34
   }, {
-    "slug": "lesson-37-formas-de-pago-social-finance",
-    "title": "Lesson 37: Formas de Pago",
+    "slug": "lesson-35-formas-de-pago-social-finance",
+    "title": "Lesson 35: Formas de Pago",
     "level": "A2.1",
     "description": "Mastering the social and commercial nuances of paying in Spanish: from splitting bills with friends to financing expensive purchases.",
-    "searchContent": "Spanish ways of paying, pagar a medias vs dividir la cuenta, pagar cada uno lo suyo, poner bote meaning, pagar a plazos installments, Spanish social etiquette paying, lesson 37 Spanish",
-    "component": grammar_lesson_37
+    "searchContent": "Spanish ways of paying, pagar a medias vs dividir la cuenta, pagar cada uno lo suyo, poner bote meaning, pagar a plazos installments, Spanish social etiquette paying, lesson 35 Spanish",
+    "component": grammar_lesson_35
+  },
+  {
+    slug: "lesson-36",
+    title: "Lesson 36: Mastery of El Pretérito Indefinido",
+    level: "A2.1",
+    description:
+      "A deep dive into the logic of the Spanish past tense. Covers regular forms, the collapse of present-tense stem changes, the 'Strong Preterite' system, J-stems, sandal verbs, and orthographic repairs.",
+    searchContent: `
+      Spanish preterite indefinido lesson 36
+      regular AR ER IR preterite conjugation
+      strong preterite stems tuv pud pus quis vin
+      Spanish sandal verbs e to i o to u preterite
+      ser vs ir preterite conjugation fui
+      orthographic changes car gar zar preterite
+      Spanish past tense logic and stress patterns
+    `,
+    component: grammar_lesson_36,
+  },
+  
+  {
+    slug: "lesson-37",
+    title: "Lesson 37: El Pretérito Imperfecto Progresivo (Bonus Lesson)",
+    level: "A2.1",
+    description:
+      "A comprehensive guide to the Spanish Past Continuous. Master the construction of Estar (Imperfect) + Gerund, including critical stem-changing -ir verbs, orthographic 'y' insertions, and the essential distinctions between the Past Continuous, Imperfect, and Preterite.",
+    searchContent: `
+      Spanish past continuous lesson 37
+      pretérito imperfecto progresivo conjugation
+      estar imperfecto plus gerundio
+      irregular gerunds Spanish pidiendo durmiendo leyendo
+      past continuous vs imperfect vs preterite Spanish
+      interrupted actions in the past Spanish grammar
+      parallel actions in the past Spanish
+      gerund formation rules -ando -iendo -yendo
+    `,
+    component: grammar_lesson_37,
   }
 ];
+
