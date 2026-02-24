@@ -267,6 +267,8 @@ const grammar_lesson_36: React.FC = () => {
             { v: "Querer", s: "Quis-" },
             { v: "Venir", s: "Vin-" },
             { v: "Haber", s: "Hub-" },
+            { v: "Hacer", s: "Hic-/Hiz-" },
+            { v: "Andar", s: "Andub-" },
           ].map((item) => (
             <div
               key={item.v}
