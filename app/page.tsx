@@ -25,11 +25,19 @@ export default function Home() {
             >
               Explore Grammar
             </Link>
+
             <Link
               href="/vocabulary"
               className="inline-flex items-center justify-center px-8 py-3 border-2 border-border bg-background text-foreground font-medium rounded-xl hover:bg-muted transition-all duration-200 hover:scale-105 text-base"
             >
               Browse Vocabulary
+            </Link>
+
+            <Link
+              href="/study"
+              className="inline-flex items-center justify-center px-8 py-3 border-2 border-border bg-background text-foreground font-medium rounded-xl hover:bg-muted transition-all duration-200 hover:scale-105 text-base"
+            >
+              Start Studying
             </Link>
           </div>
         </div>
