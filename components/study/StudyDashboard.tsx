@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Command, CommandInput, CommandItem, CommandList, CommandEmpty } from "@/components/ui/command";
+
 import { Settings2, Zap, RefreshCw, CheckCircle2, XCircle, AlertCircle } from "lucide-react";
 import type { FlattenedVocabWord } from "@/lib/vocabulary/flatten";
 import type { SrsCard } from "@/lib/srs/types";
@@ -63,6 +71,19 @@ export function StudyDashboard(props: {
   const nowIso = useMemo(() => isoNow(), []);
 
   const availableTags = useMemo(() => getAllCollectionTags(), []);
+
+  const [tagSearch, setTagSearch] = useState("");
+
+  const filteredTags = useMemo(() => {
+    if (!tagSearch.trim()) return availableTags;
+
+    const q = tagSearch.toLowerCase();
+    return availableTags.filter(
+      (t) =>
+        t.title.toLowerCase().includes(q) ||
+        t.slug.toLowerCase().includes(q)
+    );
+  }, [availableTags, tagSearch]);
 
   useEffect(() => {
     let unsub: (() => void) | null = null;
@@ -370,30 +391,68 @@ export function StudyDashboard(props: {
             </div>
 
             <div className="rounded-xl border border-border/60 p-4 bg-muted/30">
-              <div className="text-xs font-medium text-muted-foreground mb-3 uppercase tracking-wide">Custom by tag</div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Select
-                  value={customTagSlug ?? ""}
-                  onValueChange={(v) => dispatch(setMode({ mode: "custom-tag", customTagSlug: v }))}
-                >
-                  <SelectTrigger className="w-full rounded-xl">
-                    <SelectValue placeholder="Pick a collection tag…" />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-xl">
-                    {availableTags.map((t) => (
-                      <SelectItem key={t.slug} value={t.slug}>
-                        {t.title}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Button
-                  disabled={!customTagSlug}
-                  onClick={() => start("custom-tag", customTagSlug)}
-                  className="shrink-0 rounded-xl"
-                >
-                  Start
-                </Button>
+              <div className="text-xs font-medium text-muted-foreground mb-3 uppercase tracking-wide">
+                Custom by tag
+              </div>
+
+              <div className="flex flex-col gap-3">
+
+                {/* Select + Start */}
+                <div className="flex flex-col sm:flex-row gap-3 w-full">
+
+                  <div className="flex-1">
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className="w-full justify-between rounded-xl"
+                        >
+                          {customTagSlug
+                            ? availableTags.find(t => t.slug === customTagSlug)?.title
+                            : "Pick a collection tag..."}
+                        </Button>
+                      </PopoverTrigger>
+
+                      <PopoverContent
+                        align="start"
+                        className="w-[--radix-popover-trigger-width] p-0 rounded-xl"
+                      >
+                        <Command>
+                          <CommandInput
+                            placeholder="Search collection tag..."
+                            value={tagSearch}
+                            onValueChange={setTagSearch}
+                            className="h-9"
+                          />
+
+                          <CommandList className="max-h-60">
+                            <CommandEmpty>No tags found</CommandEmpty>
+
+                            {filteredTags.map((t) => (
+                              <CommandItem
+                                key={t.slug}
+                                value={t.slug}
+                                onSelect={(value) => {
+                                  dispatch(setMode({ mode: "custom-tag", customTagSlug: value }));
+                                }}
+                              >
+                                {t.title}
+                              </CommandItem>
+                            ))}
+                          </CommandList>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+
+                  <Button
+                    disabled={!customTagSlug}
+                    onClick={() => start("custom-tag", customTagSlug)}
+                    className="sm:w-auto w-full shrink-0 rounded-xl"
+                  >
+                    Start
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
