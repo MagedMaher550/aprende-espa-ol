@@ -116,5 +116,5 @@ export const VOCABULARY_COLLECTIONS: VocabularyCollection[] = [
   c52,
   c53,
   c54,
-  c55
+  c55,
 ]
