@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/popover";
 import { Command, CommandInput, CommandItem, CommandList, CommandEmpty } from "@/components/ui/command";
 import { VocabTag } from '@/lib/vocabulary/flatten';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { AppDispatch } from '@/lib/redux/store';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { StudyMode } from '@/lib/study/modeEngine';
@@ -58,8 +58,9 @@ export default function PracticeModes({
     filteredTags,
     dispatch,
     setMode
-
 }: PracticeModesProps) {
+
+    const [popoverOpen, setPopoverOpen] = useState(false);
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -121,7 +122,7 @@ export default function PracticeModes({
                             <div className="flex flex-col sm:flex-row gap-3 w-full">
 
                                 <div className="flex-1">
-                                    <Popover>
+                                    <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
                                         <PopoverTrigger asChild>
                                             <Button
                                                 variant="outline"
@@ -154,6 +155,7 @@ export default function PracticeModes({
                                                             value={t.slug}
                                                             onSelect={(value) => {
                                                                 dispatch(setMode({ mode: "custom-tag", customTagSlug: value }));
+                                                                setPopoverOpen(false);
                                                             }}
                                                         >
                                                             {t.title}
