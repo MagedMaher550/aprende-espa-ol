@@ -59,6 +59,7 @@ import c52 from "./collection_53"
 import c53 from "./collection_54"
 import c54 from "./collection_55"
 import c55 from "./collection_56"
+import c56 from "./collection_57"
 
 export const VOCABULARY_COLLECTIONS: VocabularyCollection[] = [
   c0,
@@ -117,4 +118,5 @@ export const VOCABULARY_COLLECTIONS: VocabularyCollection[] = [
   c53,
   c54,
   c55,
+  c56,
 ]
