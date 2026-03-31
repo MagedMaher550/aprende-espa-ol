@@ -1,6 +1,6 @@
 import { VocabularyCollection } from "../utils"
 
-const viajes_vida_vocab: VocabularyCollection = {
+const viajes_vida_avanzado_vocab: VocabularyCollection = {
   slug: "viajes-vida-avanzado-vocab",
   title: "Viajes, Cultura y Vida",
   level: "Intermediate",
@@ -347,4 +347,4 @@ const viajes_vida_vocab: VocabularyCollection = {
   ]
 }
 
-export default viajes_vida_vocab
+export default viajes_vida_avanzado_vocab
