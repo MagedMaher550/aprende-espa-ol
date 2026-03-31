@@ -35,6 +35,7 @@ import grammar_lesson_35 from "./lesson-35"
 import grammar_lesson_36 from "./lesson-36"
 import grammar_lesson_37 from "./lesson-37"
 import grammar_lesson_33 from "./lesson-33"
+import grammar_lesson_38 from "./lesson-38"
 
 export interface GrammarLesson {
   slug: string
@@ -585,7 +586,6 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
     `,
     component: grammar_lesson_36,
   },
-  
   {
     slug: "lesson-37",
     title: "Lesson 37: El Pretérito Imperfecto Progresivo (Bonus Lesson)",
@@ -603,6 +603,23 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       gerund formation rules -ando -iendo -yendo
     `,
     component: grammar_lesson_37,
+  },
+  {
+    slug: "lesson-38",
+    title: "Lesson 38: Direct and Indirect Object Pronouns (CD & CID)",
+    level: "A2.1",
+    description:
+      "Master the art of Spanish object pronouns. Learn to identify Direct (CD) and Indirect (CID) objects, use the 'se lo' rule to avoid tongue-twisters, and correctly position pronouns with conjugated verbs, infinitives, and imperatives.",
+    searchContent: `
+      Spanish direct object pronouns lo la los las
+      Spanish indirect object pronouns me te le nos os les
+      Spanish double object pronouns se lo se la
+      CD and CID placement rules Spanish
+      le becomes se Spanish grammar
+      Spanish pronoun replacement examples
+      interactive Spanish grammar quiz pronouns
+    `,
+    component: grammar_lesson_38,
   }
 ];
 
