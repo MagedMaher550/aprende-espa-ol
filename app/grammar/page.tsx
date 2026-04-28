@@ -10,7 +10,7 @@ const ITEMS_PER_PAGE = 10;
 export default function GrammarIndex() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [isDescending, setIsDescending] = useState(false);
+  const [isDescending, setIsDescending] = useState(true);
 
   const processedLessons = useMemo(() => {
     // 1. Filtering logic
