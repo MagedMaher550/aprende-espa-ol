@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { ArrowDownWideNarrow, ArrowUpWideNarrow } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { VOCABULARY_COLLECTIONS } from "@/lib/vocabulary";
 import { SearchBar } from "./search-bar";
 
@@ -10,27 +12,32 @@ const ITEMS_PER_PAGE = 6;
 export default function VocabularyIndex() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [newestFirst, setNewestFirst] = useState(true);
 
-  // 1. Filter data based on search
-  const filteredCollections = useMemo(() => {
-    return VOCABULARY_COLLECTIONS.filter(
+  const visibleCollections = useMemo(() => {
+    const filtered = VOCABULARY_COLLECTIONS.filter(
       (col) =>
         col.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         col.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
-  }, [searchQuery]);
 
-  // 2. Calculate pagination
-  const totalPages = Math.ceil(filteredCollections.length / ITEMS_PER_PAGE);
+    return newestFirst ? [...filtered].reverse() : filtered;
+  }, [searchQuery, newestFirst]);
+
+  const totalPages = Math.ceil(visibleCollections.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const paginatedItems = filteredCollections.slice(
+  const paginatedItems = visibleCollections.slice(
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
 
-  // Reset to page 1 when searching
   const handleSearch = (val: string) => {
     setSearchQuery(val);
+    setCurrentPage(1);
+  };
+
+  const toggleSortOrder = () => {
+    setNewestFirst((value) => !value);
     setCurrentPage(1);
   };
 
@@ -48,7 +55,27 @@ export default function VocabularyIndex() {
               </p>
             </div>
           </div>
-          <SearchBar value={searchQuery} onChange={handleSearch} />
+          <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+            <SearchBar value={searchQuery} onChange={handleSearch} />
+            <Button
+              type="button"
+              variant="outline"
+              onClick={toggleSortOrder}
+              className="w-full sm:w-auto justify-center"
+              aria-label={
+                newestFirst
+                  ? "Show oldest vocabulary collections first"
+                  : "Show newest vocabulary collections first"
+              }
+            >
+              {newestFirst ? (
+                <ArrowDownWideNarrow className="h-4 w-4" />
+              ) : (
+                <ArrowUpWideNarrow className="h-4 w-4" />
+              )}
+              {newestFirst ? "Newest first" : "Oldest first"}
+            </Button>
+          </div>
 
           {/* Collections Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -100,7 +127,7 @@ export default function VocabularyIndex() {
           )}
 
           {/* Empty State */}
-          {filteredCollections.length === 0 && (
+          {visibleCollections.length === 0 && (
             <div className="text-center py-20">
               <p className="text-base text-muted-foreground">
                 No collections found matching "{searchQuery}"
