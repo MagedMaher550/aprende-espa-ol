@@ -36,6 +36,7 @@ import grammar_lesson_36 from "./lesson-36"
 import grammar_lesson_37 from "./lesson-37"
 import grammar_lesson_33 from "./lesson-33"
 import grammar_lesson_38 from "./lesson-38"
+import grammar_lesson_39 from "./lesson-39"
 
 export interface GrammarLesson {
   slug: string
@@ -620,6 +621,22 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       interactive Spanish grammar quiz pronouns
     `,
     component: grammar_lesson_38,
+  },
+  {
+    slug: "lesson-39",
+    title: "Lesson 39: Ser vs Estar",
+    level: "A2.2",
+    description:
+      "A complete lesson on Ser vs Estar covering core differences, all major uses, common mistakes, practice exercises, and a collapsible answer key.",
+    searchContent: `
+      ser vs estar Spanish grammar lesson A2.2
+      permanent characteristics temporary states results
+      identification nationality origin profession belonging
+      location emotional states physical states estar gerundio
+      ser time dates material events
+      common mistakes estoy ingeniero soy cansado
+      ser vs estar exercises answer key
+    `,
+    component: grammar_lesson_39,
   }
 ];
-
