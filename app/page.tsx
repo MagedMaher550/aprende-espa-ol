@@ -1,85 +1,209 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, BookOpen, Brain, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32">
-        <div className="space-y-8">
-          <div className="space-y-6 max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-balance leading-tight tracking-tight">
-              Master Spanish with clarity and confidence
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              Learn grammar fundamentals and expand your vocabulary through our
-              clean, focused learning platform. No distractions, just pure
-              learning.
-            </p>
-          </div>
+    <div className="relative">
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute -top-24 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-[999px] bg-[radial-gradient(circle_at_30%_30%,rgba(230,57,70,0.18),transparent_55%),radial-gradient(circle_at_70%_40%,rgba(244,162,97,0.18),transparent_50%),radial-gradient(circle_at_50%_70%,rgba(255,209,102,0.14),transparent_55%)] blur-2xl" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/80" />
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Link
-              href="/grammar"
-              className="inline-flex items-center justify-center px-8 py-3 bg-foreground text-background font-medium rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105 text-base"
-            >
-              Explore Grammar
-            </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10 sm:pt-20 sm:pb-16">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur">
+                <Sparkles className="size-3.5 text-accent" />
+                Minimal, structured Spanish learning
+              </div>
 
-            <Link
-              href="/vocabulary"
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-border bg-background text-foreground font-medium rounded-xl hover:bg-muted transition-all duration-200 hover:scale-105 text-base"
-            >
-              Browse Vocabulary
-            </Link>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">
+                Learn Spanish with clarity, rhythm, and confidence.
+              </h1>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl">
+                Grammar that finally clicks. Vocabulary you’ll actually use. A calm, premium experience built for consistent practice.
+              </p>
 
-            <Link
-              href="/study"
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-border bg-background text-foreground font-medium rounded-xl hover:bg-muted transition-all duration-200 hover:scale-105 text-base"
-            >
-              Start Studying
-            </Link>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Button asChild size="lg">
+                  <Link href="/study" aria-label="Start learning Spanish">
+                    Start Learning <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="/grammar">Explore Grammar</Link>
+                </Button>
+                <Button asChild size="lg" variant="ghost" className="justify-center">
+                  <Link href="/vocabulary">Browse Vocabulary</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <Card className="relative overflow-hidden border bg-card/70 shadow-sm backdrop-blur">
+                <div className="p-6 sm:p-8 space-y-6">
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium text-muted-foreground">Your learning path</p>
+                    <p className="text-xl font-semibold tracking-tight">Start in minutes.</p>
+                  </div>
+
+                  <div className="grid gap-3">
+                    <div className="flex items-start gap-3 rounded-2xl border bg-background/60 p-4">
+                      <div className="size-10 rounded-2xl bg-primary/10 border border-primary/15 grid place-items-center">
+                        <Brain className="size-5 text-primary" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-medium">Understand grammar</p>
+                        <p className="text-sm text-muted-foreground">
+                          Clear lessons, searchable topics, and bite-sized explanations.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 rounded-2xl border bg-background/60 p-4">
+                      <div className="size-10 rounded-2xl bg-accent/20 border border-accent/25 grid place-items-center">
+                        <BookOpen className="size-5 text-accent-foreground" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-medium">Build vocabulary</p>
+                        <p className="text-sm text-muted-foreground">
+                          Themed collections designed for real conversations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl bg-muted/60 border p-4">
+                    <p className="text-sm text-muted-foreground">
+                      Tip: Use <span className="text-foreground font-medium">Study</span> daily for spaced repetition and steady progress.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="border-t border-border/60 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="rounded-2xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
+      {/* FEATURES / BENEFITS */}
+      <section className="border-t border-border/60 bg-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
+          <div className="max-w-2xl space-y-3">
+            <h2 className="text-2xl sm:text-3xl font-semibold">Everything you need, nothing you don’t.</h2>
+            <p className="text-muted-foreground">
+              A focused system that makes learning feel calm, structured, and rewarding.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Card className="border bg-card/70 backdrop-blur p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
               <div className="space-y-3">
-                <h3 className="text-xl font-medium text-foreground">
-                  Grammar Lessons
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Comprehensive, structured lessons covering all essential grammar
-                  topics from beginner to advanced levels.
+                <p className="text-sm font-medium text-muted-foreground">Grammar</p>
+                <h3 className="text-lg font-semibold tracking-tight">Structured lessons</h3>
+                <p className="text-sm text-muted-foreground">
+                  Step-by-step topics from beginner to advanced—easy to scan, easy to revisit.
                 </p>
               </div>
             </Card>
-            <Card className="rounded-2xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
+            <Card className="border bg-card/70 backdrop-blur p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
               <div className="space-y-3">
-                <h3 className="text-xl font-medium text-foreground">
-                  Vocabulary Collections
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Organized word sets by theme. Learn practical vocabulary for
-                  real-world conversations.
+                <p className="text-sm font-medium text-muted-foreground">Vocabulary</p>
+                <h3 className="text-lg font-semibold tracking-tight">Real-world collections</h3>
+                <p className="text-sm text-muted-foreground">
+                  Learn practical words grouped by theme—designed for recall and usage.
                 </p>
               </div>
             </Card>
-            <Card className="rounded-2xl shadow-sm border p-6 hover:shadow-md transition-shadow duration-200">
+            <Card className="border bg-card/70 backdrop-blur p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
               <div className="space-y-3">
-                <h3 className="text-xl font-medium text-foreground">
-                  Content-First Design
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Minimal, typography-driven interface that puts your learning
-                  first. No unnecessary distractions.
+                <p className="text-sm font-medium text-muted-foreground">Study</p>
+                <h3 className="text-lg font-semibold tracking-tight">Built for consistency</h3>
+                <p className="text-sm text-muted-foreground">
+                  A clean practice experience with smooth interactions and clear feedback.
                 </p>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* LESSONS / CONTENT */}
+      <section className="border-t border-border/60 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
+          <div className="grid gap-6 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-5 space-y-3">
+              <h2 className="text-2xl sm:text-3xl font-semibold">Choose your next session.</h2>
+              <p className="text-muted-foreground">
+                Jump into a focused track—grammar, vocabulary, or spaced-repetition study.
+              </p>
+            </div>
+            <div className="lg:col-span-7 grid gap-4 sm:grid-cols-2">
+              <Link
+                href="/grammar"
+                className="group rounded-3xl border bg-card/70 backdrop-blur p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium text-muted-foreground">Grammar</p>
+                    <p className="text-lg font-semibold tracking-tight group-hover:text-foreground">
+                      Browse lessons
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Search topics and progress in a clean, structured way.
+                    </p>
+                  </div>
+                  <div className="size-11 rounded-2xl bg-primary/10 border border-primary/15 grid place-items-center">
+                    <ArrowRight className="size-4 text-primary" />
+                  </div>
+                </div>
+              </Link>
+
+              <Link
+                href="/vocabulary"
+                className="group rounded-3xl border bg-card/70 backdrop-blur p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium text-muted-foreground">Vocabulary</p>
+                    <p className="text-lg font-semibold tracking-tight group-hover:text-foreground">
+                      Explore collections
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Themed sets designed for real conversations and recall.
+                    </p>
+                  </div>
+                  <div className="size-11 rounded-2xl bg-accent/20 border border-accent/25 grid place-items-center">
+                    <ArrowRight className="size-4 text-accent-foreground" />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t border-border/60 bg-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
+          <div className="rounded-3xl border bg-background p-8 sm:p-10 shadow-sm">
+            <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
+              <div className="lg:col-span-8 space-y-2">
+                <h2 className="text-2xl sm:text-3xl font-semibold">Start a calm, consistent Spanish routine.</h2>
+                <p className="text-muted-foreground">
+                  Open Study and do a short session—your future self will thank you.
+                </p>
+              </div>
+              <div className="lg:col-span-4 flex lg:justify-end">
+                <Button asChild size="lg" className="w-full sm:w-auto">
+                  <Link href="/study">
+                    Start Learning <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
