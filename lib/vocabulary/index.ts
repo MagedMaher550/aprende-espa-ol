@@ -72,6 +72,8 @@ import c65 from "./collection_66"
 import c66 from "./collection_67"
 import c67 from "./collection_68"
 import c68 from "./collection_69"
+import c69 from "./collection_70"
+import c70 from "./collection_71"
 
 export const VOCABULARY_COLLECTIONS: VocabularyCollection[] = [
   c0,
@@ -143,4 +145,6 @@ export const VOCABULARY_COLLECTIONS: VocabularyCollection[] = [
   c66,
   c67,
   c68,
+  c69,
+  c70,
 ]
