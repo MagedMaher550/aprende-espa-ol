@@ -28,7 +28,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
       <div className="mb-4 inline-flex w-fit rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
         Article
       </div>
-      <h2 className="mb-3 text-xl font-semibold tracking-tight text-slate-900 transition-colors group-hover:text-amber-700">
+      <h2 className="mb-2 max-w-xs text-base font-semibold leading-snug tracking-tight text-slate-900 transition-colors group-hover:text-amber-700 md:text-lg text-balance line-clamp-2">
         {article.title}
       </h2>
       <p className="text-sm leading-6 text-slate-600">{getPreview(article.content)}</p>

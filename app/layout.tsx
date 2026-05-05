@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Providers>
-          <div className="min-h-screen bg-background text-foreground flex flex-col">
+          <div className="min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
             <Header />
 
             {/* FIXED MAIN CONTAINER */}

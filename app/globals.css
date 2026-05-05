@@ -5,7 +5,7 @@
 
 :root {
   /* Premium Spanish-inspired palette */
-  --background: #ffffff;
+  --background: #f8fafc;
   --foreground: #0b1220;
 
   --card: #ffffff;
@@ -23,7 +23,7 @@
   --secondary-foreground: #0b1220;
 
   --muted: #f1f3f5;
-  --muted-foreground: #5b6475;
+  --muted-foreground: #556070;
 
   /* Accent highlight (subtle yellow/orange) */
   --accent: #f4a261;
@@ -144,6 +144,14 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  svg.lucide {
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
   }
   body {
     @apply bg-background text-foreground;

@@ -179,7 +179,7 @@ const grammar_lesson_5: React.FC = () => {
           </div>
           <div className="bg-accent/20 p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border border-accent/30">
             <h4 className="flex items-center gap-2 font-bold mb-4 text-accent">
-              <Info size={20} className="shrink-0" /> Pro-Tip
+              <Info className="w-5 h-5 shrink-0 aspect-square" /> Pro-Tip
             </h4>
             <p className="text-xs sm:text-sm italic">
               The "Yo" form is always <strong>-o</strong> across all three
@@ -322,14 +322,14 @@ const grammar_lesson_5: React.FC = () => {
                     : "opacity-0 translate-y-2"
                 }`}
               >
-                <CheckCircle2 size={18} className="text-accent shrink-0" />
+                <CheckCircle2 className="w-5 h-5 shrink-0 aspect-square text-accent" />
                 <p className="text-xl sm:text-2xl font-black text-accent underline decoration-accent/30">
                   {item.a}
                 </p>
               </div>
 
               <div className="absolute bottom-4 right-6 text-muted-foreground/20 group-hover:text-accent/20 transition-colors pointer-events-none">
-                <PenTool size={32} className="sm:size-10" />
+                <PenTool className="w-6 h-6 shrink-0 aspect-square sm:w-6 sm:h-6" />
               </div>
             </div>
           ))}

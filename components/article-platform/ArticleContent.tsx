@@ -32,7 +32,7 @@ export function ArticleContent({
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl">{title}</CardTitle>
+        <CardTitle className="max-w-prose">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="prose prose-sm dark:prose-invert max-w-none text-gray-800 leading-relaxed whitespace-pre-wrap">

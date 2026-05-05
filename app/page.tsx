@@ -17,7 +17,7 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur">
-                <Sparkles className="size-3.5 text-accent" />
+                <Sparkles className="w-4 h-4 shrink-0 aspect-square text-accent" />
                 Minimal, structured Spanish learning
               </div>
 
@@ -29,15 +29,20 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="w-full sm:w-auto min-h-[44px]">
                   <Link href="/study" aria-label="Start learning Spanish">
                     Start Learning <ArrowRight className="size-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button asChild size="lg" variant="outline" className="w-full sm:w-auto min-h-[44px]">
                   <Link href="/grammar">Explore Grammar</Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="ghost"
+                  className="w-full sm:w-auto justify-center min-h-[44px]"
+                >
                   <Link href="/vocabulary">Browse Vocabulary</Link>
                 </Button>
               </div>
@@ -54,7 +59,7 @@ export default function Home() {
                   <div className="grid gap-3">
                     <div className="flex items-start gap-3 rounded-2xl border bg-background/60 p-4">
                       <div className="size-10 rounded-2xl bg-primary/10 border border-primary/15 grid place-items-center">
-                        <Brain className="size-5 text-primary" />
+                        <Brain className="w-5 h-5 shrink-0 aspect-square text-primary" />
                       </div>
                       <div className="min-w-0">
                         <p className="font-medium">Understand grammar</p>
@@ -65,7 +70,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-start gap-3 rounded-2xl border bg-background/60 p-4">
                       <div className="size-10 rounded-2xl bg-accent/20 border border-accent/25 grid place-items-center">
-                        <BookOpen className="size-5 text-accent-foreground" />
+                        <BookOpen className="w-5 h-5 shrink-0 aspect-square text-accent-foreground" />
                       </div>
                       <div className="min-w-0">
                         <p className="font-medium">Build vocabulary</p>
@@ -156,7 +161,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="size-11 rounded-2xl bg-primary/10 border border-primary/15 grid place-items-center">
-                    <ArrowRight className="size-4 text-primary" />
+                    <ArrowRight className="w-4 h-4 shrink-0 aspect-square text-primary" />
                   </div>
                 </div>
               </Link>
@@ -176,7 +181,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="size-11 rounded-2xl bg-accent/20 border border-accent/25 grid place-items-center">
-                    <ArrowRight className="size-4 text-accent-foreground" />
+                    <ArrowRight className="w-4 h-4 shrink-0 aspect-square text-accent-foreground" />
                   </div>
                 </div>
               </Link>
@@ -199,7 +204,7 @@ export default function Home() {
               <div className="lg:col-span-4 flex lg:justify-end">
                 <Button asChild size="lg" className="w-full sm:w-auto">
                   <Link href="/study">
-                    Start Learning <ArrowRight className="size-4" />
+                    Start Learning <ArrowRight className="w-4 h-4 shrink-0 aspect-square" />
                   </Link>
                 </Button>
               </div>

@@ -35,26 +35,26 @@ export default function StudyDashboardHeader({ firebaseReady, level, syncState, 
                 <div className="flex items-center gap-3 flex-wrap">
                     <h1 className="text-3xl font-semibold tracking-tight">Study</h1>
                     <Badge variant="secondary" className="gap-1.5 rounded-full px-3 py-1">
-                        <Zap className="h-3.5 w-3.5" />
+                        <Zap className="w-4 h-4 shrink-0 aspect-square" />
                         Level {level}
                     </Badge>
                     {firebaseReady && user && (
                         <div className="flex items-center gap-2">
                             {syncState === "syncing" && (
                                 <Badge variant="outline" className="gap-1.5 text-xs rounded-full">
-                                    <RefreshCw className="h-3 w-3 animate-spin" />
+                                    <RefreshCw className="w-4 h-4 shrink-0 aspect-square animate-spin" />
                                     Syncing...
                                 </Badge>
                             )}
                             {syncState === "success" && (
                                 <Badge variant="outline" className="gap-1.5 text-xs bg-green-50 dark:bg-green-950/20 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800 rounded-full">
-                                    <CheckCircle2 className="h-3 w-3" />
+                                    <CheckCircle2 className="w-4 h-4 shrink-0 aspect-square" />
                                     Synced
                                 </Badge>
                             )}
                             {syncState === "error" && (
                                 <Badge variant="outline" className="gap-1.5 text-xs bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800 rounded-full">
-                                    <XCircle className="h-3 w-3" />
+                                    <XCircle className="w-4 h-4 shrink-0 aspect-square" />
                                     Sync failed
                                 </Badge>
                             )}
@@ -72,7 +72,7 @@ export default function StudyDashboardHeader({ firebaseReady, level, syncState, 
             <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
                 <DialogTrigger asChild>
                     <Button variant="outline" className="gap-2 rounded-xl w-full sm:w-auto">
-                        <Settings2 className="h-4 w-4" />
+                        <Settings2 className="w-4 h-4 shrink-0 aspect-square" />
                         Settings
                     </Button>
                 </DialogTrigger>

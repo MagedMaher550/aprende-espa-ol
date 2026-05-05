@@ -30,7 +30,7 @@ const grammar_lesson_11: React.FC = () => {
       {/* HEADER SECTION */}
       <header className="space-y-4 text-center">
         <div className="mx-auto flex size-16 items-center justify-center rounded-3xl bg-accent shadow-2xl">
-          <Languages className="size-8 text-accent-foreground" />
+          <Languages className="w-6 h-6 shrink-0 aspect-square text-accent-foreground" />
         </div>
         <h1 className="text-4xl font-black tracking-tighter uppercase italic sm:text-6xl">
           Mastering Description
@@ -74,7 +74,7 @@ const grammar_lesson_11: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6 rounded-[1.5rem] border border-border bg-card p-8 shadow-sm">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-accent flex items-center gap-2">
-                <Info size={16} /> Usage & Core Logic
+                <Info className="w-4 h-4 shrink-0 aspect-square" /> Usage & Core Logic
               </h3>
               <p className="text-sm leading-relaxed">
                 <b>SER</b> is used for the "essence" of a person. These are
@@ -82,7 +82,7 @@ const grammar_lesson_11: React.FC = () => {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 size-5 shrink-0 text-accent" />
+                  <CheckCircle2 className="mt-1 w-5 h-5 shrink-0 aspect-square text-accent" />
                   <div>
                     <p className="font-bold text-sm">Identity & Names</p>
                     <p className="text-xs text-muted-foreground italic">
@@ -91,7 +91,7 @@ const grammar_lesson_11: React.FC = () => {
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 size-5 shrink-0 text-accent" />
+                  <CheckCircle2 className="mt-1 w-5 h-5 shrink-0 aspect-square text-accent" />
                   <div>
                     <p className="font-bold text-sm">Nationality & Origin</p>
                     <p className="text-xs text-muted-foreground italic">
@@ -100,7 +100,7 @@ const grammar_lesson_11: React.FC = () => {
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 size-5 shrink-0 text-accent" />
+                  <CheckCircle2 className="mt-1 w-5 h-5 shrink-0 aspect-square text-accent" />
                   <div>
                     <p className="font-bold text-sm">Profession</p>
                     <p className="text-xs text-muted-foreground italic">
@@ -158,7 +158,7 @@ const grammar_lesson_11: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="space-y-6">
                 <h3 className="text-xl font-bold text-accent italic flex items-center gap-2">
-                  <Heart size={20} /> The "How" and "Where"
+                  <Heart className="w-5 h-5 shrink-0 aspect-square" /> The "How" and "Where"
                 </h3>
                 <p className="opacity-80 text-sm leading-relaxed">
                   If <b>Ser</b> is who you are, <b>Estar</b> is how you are
@@ -265,7 +265,7 @@ const grammar_lesson_11: React.FC = () => {
                 </table>
               </div>
               <div className="p-6 rounded-2xl bg-card border border-border flex items-start gap-4">
-                <AlertCircle className="text-red-500 shrink-0 mt-1" />
+                <AlertCircle className="w-5 h-5 shrink-0 aspect-square text-red-500 mt-1" />
                 <p className="text-xs italic text-muted-foreground leading-relaxed">
                   <b>Note:</b> Do not use <i>ser</i> for age. In Spanish, you
                   "have" years, you aren't them.
@@ -292,7 +292,7 @@ const grammar_lesson_11: React.FC = () => {
             <div className="space-y-6">
               <div className="p-8 rounded-[2rem] border border-border bg-card shadow-sm space-y-4">
                 <h3 className="text-xs font-black uppercase tracking-widest text-accent flex items-center gap-2">
-                  <Shirt size={16} /> Wearable Traits
+                  <Shirt className="w-4 h-4 shrink-0 aspect-square" /> Wearable Traits
                 </h3>
                 <p className="text-sm">
                   <b>Llevar</b> (to carry/wear) is used for clothes and
@@ -345,7 +345,7 @@ const grammar_lesson_11: React.FC = () => {
       <section className="space-y-12">
         <div className="flex flex-col items-center text-center space-y-4">
           <div className="flex size-14 items-center justify-center rounded-full bg-accent/10 text-accent">
-            <Sparkles className="size-8" />
+            <Sparkles className="w-6 h-6 shrink-0 aspect-square" />
           </div>
           <h2 className="text-4xl font-black tracking-tight uppercase italic">
             Interactive Challenge
@@ -428,7 +428,7 @@ const grammar_lesson_11: React.FC = () => {
               className="group relative cursor-pointer overflow-hidden rounded-[2rem] border-2 border-border bg-card p-8 transition-all hover:border-accent hover:shadow-xl active:scale-95"
             >
               <div className="flex items-center gap-2 mb-4">
-                <HelpCircle size={18} className="text-accent" />
+                <HelpCircle className="w-5 h-5 shrink-0 aspect-square text-accent" />
                 <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
                   Fill the blank
                 </span>
@@ -456,7 +456,7 @@ const grammar_lesson_11: React.FC = () => {
               </div>
 
               <div className="absolute bottom-6 right-8 text-muted-foreground/10 group-hover:text-accent/20 transition-colors pointer-events-none">
-                <RotateCcw size={48} />
+                <RotateCcw className="w-6 h-6 shrink-0 aspect-square" />
               </div>
             </div>
           ))}
@@ -563,7 +563,7 @@ const grammar_lesson_11: React.FC = () => {
           <div className="relative overflow-hidden rounded-[1.5rem] bg-accent p-8 text-accent-foreground shadow-2xl">
             <div className="relative z-10 space-y-6">
               <h4 className="flex items-center gap-2 font-black uppercase tracking-widest text-[11px] opacity-80">
-                <PenTool size={16} /> Production Prompt
+                <PenTool className="w-4 h-4 shrink-0 aspect-square" /> Production Prompt
               </h4>
               <p className="text-xl font-bold leading-tight italic">
                 "Describe your favorite celebrity without saying their name. Use
@@ -574,7 +574,7 @@ const grammar_lesson_11: React.FC = () => {
                 Lleva una chaqueta de cuero..."
               </div>
             </div>
-            <Layers className="absolute -bottom-8 -right-8 size-48 opacity-10" />
+            <Layers className="absolute -bottom-8 -right-8 w-6 h-6 shrink-0 aspect-square opacity-10" />
           </div>
         </div>
       </section>

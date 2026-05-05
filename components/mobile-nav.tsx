@@ -19,7 +19,7 @@ export function MobileNav() {
         <ThemeToggle />
         <button
           onClick={toggleMenu}
-          className="p-2 rounded-lg border border-border hover:bg-secondary transition-colors"
+          className="h-11 w-11 inline-flex items-center justify-center rounded-xl border border-border bg-background/70 hover:bg-secondary transition-all duration-200"
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
         >
@@ -32,15 +32,16 @@ export function MobileNav() {
           className="fixed inset-0 top-16 md:hidden z-40"
           onClick={closeMenu}
         >
+          <div className="absolute inset-0 bg-foreground/10 backdrop-blur-[2px]" />
           <div
-            className="bg-card/95 backdrop-blur-sm border-b border-border/40 p-4 space-y-3 flex flex-col"
+            className="relative bg-card/95 backdrop-blur-md border-b border-border/60 px-4 py-4 space-y-2 flex flex-col shadow-sm"
             onClick={(e) => e.stopPropagation()}
           >
             {MAIN_NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="h-11 px-3 rounded-xl text-sm font-medium text-foreground/90 hover:text-foreground hover:bg-muted/70 transition-all duration-200 flex items-center"
                 onClick={closeMenu}
               >
                 {item.label}
