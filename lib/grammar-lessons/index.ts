@@ -37,6 +37,7 @@ import grammar_lesson_37 from "./lesson-37"
 import grammar_lesson_33 from "./lesson-33"
 import grammar_lesson_38 from "./lesson-38"
 import grammar_lesson_39 from "./lesson-39"
+import grammar_lesson_40 from "./lesson-40"
 
 export interface GrammarLesson {
   slug: string
@@ -638,5 +639,22 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       ser vs estar exercises answer key
     `,
     component: grammar_lesson_39,
+  },
+  {
+    slug: "lesson-40",
+    title: "Lesson 40: Expressing Rules, Obligation, and Permission",
+    level: "A2.2",
+    description:
+      "Learn common Spanish structures for rules, obligation, permission, prohibition, social norms, spoken warnings, and formal written instructions.",
+    searchContent: `
+      Spanish rules obligation permission prohibition lesson A2.2
+      hay que infinitive poder infinitive deber infinitive
+      se puede no se puede se debe infinitive
+      esta permitido se permite esta prohibido se prohibe
+      esta bien visto esta mal visto social norms
+      spoken warnings advice por favor no uses oye no hagas eso
+      formal signs public places school work travel rules
+    `,
+    component: grammar_lesson_40,
   }
 ];
