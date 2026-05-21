@@ -38,6 +38,7 @@ import grammar_lesson_33 from "./lesson-33"
 import grammar_lesson_38 from "./lesson-38"
 import grammar_lesson_39 from "./lesson-39"
 import grammar_lesson_40 from "./lesson-40"
+import grammar_lesson_41 from "./lesson-41"
 
 export interface GrammarLesson {
   slug: string
@@ -656,5 +657,19 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       formal signs public places school work travel rules
     `,
     component: grammar_lesson_40,
+  }
+  ,
+  {
+    slug: "lesson-41-el-imperfecto",
+    title: "Lesson 41: El Imperfecto",
+    level: "A2.1",
+    description:
+      "Conjugation rules and core uses of the Spanish imperfect tense, with examples and practice prompts.",
+    searchContent: `
+      imperfecto el imperfecto conjugation aba ia verbs uses habitual descriptions ongoing simultaneous background
+      imperfect vs preterite cuando mientras siempre normalmente frecuentemente muchas veces
+      imperfect tense examples yo jugaba estudiaba mientras llovía hacía
+    `,
+    component: grammar_lesson_41,
   }
 ];
