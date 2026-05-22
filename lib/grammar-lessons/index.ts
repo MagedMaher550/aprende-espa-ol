@@ -660,9 +660,9 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
   }
   ,
   {
-    slug: "lesson-41-el-imperfecto",
+    slug: "lesson-41-el",
     title: "Lesson 41: El Imperfecto",
-    level: "A2.1",
+    level: "A2.2",
     description:
       "Conjugation rules and core uses of the Spanish imperfect tense, with examples and practice prompts.",
     searchContent: `

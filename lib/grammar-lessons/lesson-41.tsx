@@ -70,7 +70,7 @@ const grammar_lesson_41: React.FC = () => {
 
               <div className="mt-5 grid gap-4 sm:grid-cols-3">
                 <div className="rounded-3xl border border-border/60 bg-background/80 p-4">
-                  <p className="text-sm font-semibold">Ir — ir</p>
+                  <p className="text-sm font-semibold">Ir</p>
                   <table className="mt-4 w-full text-sm text-left">
                     <tbody className="divide-y divide-border">
                       {[
@@ -97,7 +97,7 @@ const grammar_lesson_41: React.FC = () => {
                 </div>
 
                 <div className="rounded-3xl border border-border/60 bg-background/80 p-4">
-                  <p className="text-sm font-semibold">Ser — To be</p>
+                  <p className="text-sm font-semibold">Ser</p>
                   <table className="mt-4 w-full text-sm text-left">
                     <tbody className="divide-y divide-border">
                       {[
@@ -124,7 +124,7 @@ const grammar_lesson_41: React.FC = () => {
                 </div>
 
                 <div className="rounded-3xl border border-border/60 bg-background/80 p-4">
-                  <p className="text-sm font-semibold">Ver — ver</p>
+                  <p className="text-sm font-semibold">Ver</p>
                   <table className="mt-4 w-full text-sm text-left">
                     <tbody className="divide-y divide-border">
                       {[
