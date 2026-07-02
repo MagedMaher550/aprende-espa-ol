@@ -39,6 +39,7 @@ import grammar_lesson_38 from "./lesson-38"
 import grammar_lesson_39 from "./lesson-39"
 import grammar_lesson_40 from "./lesson-40"
 import grammar_lesson_41 from "./lesson-41"
+import grammar_lesson_42 from "./lesson-42"
 
 export interface GrammarLesson {
   slug: string
@@ -671,5 +672,21 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       imperfect tense examples yo jugaba estudiaba mientras llovía hacía
     `,
     component: grammar_lesson_41,
+  },
+  {
+    slug: "lesson-42-futuro-imperfecto",
+    title: "Lesson 42: Futuro Imperfecto",
+    level: "A2.2",
+    description:
+      "Learn the Spanish simple future tense for future actions, predictions, promises, conjectures, and conditional results with si + presente.",
+    searchContent: `
+      futuro imperfecto Spanish simple future lesson 42
+      future tense endings infinitive hablaré comerás vivirá
+      irregular future stems tendr har dir podr querr pondr saldr vendr sabr habr
+      predictions promises conjectures present probability
+      si presente futuro conditional sentences Spanish
+      future tense practice exercises Spanish grammar
+    `,
+    component: grammar_lesson_42,
   }
 ];
