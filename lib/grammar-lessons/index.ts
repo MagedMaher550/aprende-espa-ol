@@ -40,6 +40,7 @@ import grammar_lesson_39 from "./lesson-39"
 import grammar_lesson_40 from "./lesson-40"
 import grammar_lesson_41 from "./lesson-41"
 import grammar_lesson_42 from "./lesson-42"
+import grammar_lesson_43 from "./lesson-43"
 
 export interface GrammarLesson {
   slug: string
@@ -676,7 +677,7 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
   {
     slug: "lesson-42-futuro-imperfecto",
     title: "Lesson 42: Futuro Imperfecto",
-    level: "A2.2",
+    level: "A2.3",
     description:
       "Learn the Spanish simple future tense for future actions, predictions, promises, conjectures, and conditional results with si + presente.",
     searchContent: `
@@ -688,5 +689,22 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       future tense practice exercises Spanish grammar
     `,
     component: grammar_lesson_42,
+  },
+  {
+    slug: "lesson-43-el-condicional",
+    title: "Lesson 43: El Condicional",
+    level: "A2.3",
+    description:
+      "Learn the Spanish conditional tense to express wishes, give advice, make polite requests, and discuss hypotheses.",
+    searchContent: `
+      el condicional conditional tense Spanish lesson 44
+      conditional endings ia ias iamos iais ian
+      conditional tense regular verbs hablar comer vivir
+      irregular conditional stems habr cabr sabr podr querr pondr vendr saldr valdr tendr har dir
+      me gustaria yo que tu podrias querrias polite requests advice wishes
+      Spanish conditional hypotheses probability seria estaria tendrian
+      conditional tense practice exercises Spanish
+    `,
+    component: grammar_lesson_43,
   }
 ];
