@@ -41,6 +41,7 @@ import grammar_lesson_40 from "./lesson-40"
 import grammar_lesson_41 from "./lesson-41"
 import grammar_lesson_42 from "./lesson-42"
 import grammar_lesson_43 from "./lesson-43"
+import grammar_lesson_45 from "./lesson-45"
 
 export interface GrammarLesson {
   slug: string
@@ -706,5 +707,22 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       conditional tense practice exercises Spanish
     `,
     component: grammar_lesson_43,
+  },
+  {
+    slug: "lesson-45-el-imperativo-negativo",
+    title: "Lesson 45: El Imperativo Negativo",
+    level: "A2.4",
+    description:
+      "Learn how to form Spanish negative commands with the present subjunctive, including regular, stem-changing, irregular, and reflexive verbs.",
+    searchContent: `
+      imperativo negativo Spanish negative commands present subjunctive
+      no hables no comas no vivas negative imperative
+      present subjunctive formation opposite endings ar er ir
+      stem changing subjunctive nosotros vosotros sentir dormir jugar
+      irregular subjunctive stems tener venir decir salir hacer poner
+      reflexive negative commands no te levantes no os acostéis
+      Spanish A2.4 negative commands practice exercises
+    `,
+    component: grammar_lesson_45,
   }
 ];
