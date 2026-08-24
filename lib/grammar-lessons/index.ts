@@ -42,6 +42,7 @@ import grammar_lesson_41 from "./lesson-41"
 import grammar_lesson_42 from "./lesson-42"
 import grammar_lesson_43 from "./lesson-43"
 import grammar_lesson_45 from "./lesson-45"
+import grammar_lesson_47 from "./lesson-47"
 
 export interface GrammarLesson {
   slug: string
@@ -724,5 +725,22 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       Spanish A2.4 negative commands practice exercises
     `,
     component: grammar_lesson_45,
+  },
+  {
+    slug: "lesson-47-el-preterito-pluscuamperfecto",
+    title: "Lesson 47: El Pretérito Pluscuamperfecto",
+    level: "B1.1",
+    description:
+      "Learn the Spanish pluperfect tense to describe actions and experiences that happened before another moment in the past.",
+    searchContent: `
+      pretérito pluscuamperfecto Spanish pluperfect lesson B1.1
+      había habías había habíamos habíais habían plus participio
+      past before another past action cuando llegué ya había salido
+      nunca había comido sushi experiences before a past moment
+      pretérito perfecto indefinido imperfecto pluscuamperfecto comparison
+      irregular past participles abierto vuelto puesto visto roto cubierto dicho
+      nada más infinitivo immediately after Spanish temporal relationship
+    `,
+    component: grammar_lesson_47,
   }
 ];
