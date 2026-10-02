@@ -43,6 +43,11 @@ import grammar_lesson_42 from "./lesson-42"
 import grammar_lesson_43 from "./lesson-43"
 import grammar_lesson_45 from "./lesson-45"
 import grammar_lesson_47 from "./lesson-47"
+import grammar_lesson_49 from "./lesson-49"
+import grammar_lesson_50 from "./lesson-50"
+import grammar_lesson_51 from "./lesson-51"
+import grammar_lesson_52 from "./lesson-52"
+import grammar_lesson_53 from "./lesson-53"
 
 export interface GrammarLesson {
   slug: string
@@ -742,5 +747,45 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
       nada más infinitivo immediately after Spanish temporal relationship
     `,
     component: grammar_lesson_47,
+  },
+  {
+    slug: "lesson-49-el-subjuntivo",
+    title: "Lesson 49: El subjuntivo",
+    level: "B1.1",
+    description: "Learn when to use the Spanish subjunctive and how to form its present regular and irregular forms.",
+    searchContent: `subjuntivo presente indicativo deseo emoción valoración duda negación posibilidad mismo sujeto infinitivo sujetos diferentes que raíz yo terminaciones -ar -er -ir tenga haga diga venga pueda quiera ponga oiga sea esté vaya haya sepa dé salga siga`,
+    component: grammar_lesson_49,
+  },
+  {
+    slug: "lesson-50-expresar-acuerdo-y-desacuerdo",
+    title: "Lesson 50: Expresar acuerdo y desacuerdo",
+    level: "B1.1",
+    description: "Learn Spanish expressions for complete and partial agreement, disagreement, and skepticism.",
+    searchContent: `expresar acuerdo desacuerdo acuerdo total desacuerdo total acuerdo parcial escepticismo estoy totalmente de acuerdo tienes razón yo pienso lo mismo no estoy de acuerdo puede que subjuntivo redes sociales`,
+    component: grammar_lesson_50,
+  },
+  {
+    slug: "lesson-51-expresar-sentimientos-negativos",
+    title: "Lesson 51: Expresar sentimientos negativos",
+    level: "B1.1",
+    description: "Express negative feelings and choose between the infinitive and que plus the subjunctive.",
+    searchContent: `sentimientos negativos me irrita me molesta me indigna me fastidia me da rabia miedo vergüenza es una pena lástima intolerable inadmisible infinitivo que subjuntivo mismo sujeto sujetos diferentes intensidad`,
+    component: grammar_lesson_51,
+  },
+  {
+    slug: "lesson-52-expresiones-ser-estar",
+    title: "Lesson 52: Expresiones con SER y ESTAR",
+    level: "B1.1",
+    description: "Explore Spanish adjectives whose meanings change depending on whether they are used with ser or estar.",
+    searchContent: `ser estar adjetivos bueno abierto negro malo rico orgulloso atento interesado católico verde significado estado característica cualidad`,
+    component: grammar_lesson_52,
+  },
+  {
+    slug: "lesson-53-regla-cuando",
+    title: "Lesson 53: La regla de cuando",
+    level: "B1.1",
+    description: "Use the indicative for habitual and past actions and the present subjunctive for future actions with cuando.",
+    searchContent: `cuando indicativo subjuntivo futuro presente pasado habitual presente de subjuntivo futuro simple orden imperativo cuando llegues llámame`,
+    component: grammar_lesson_53,
   }
 ];
