@@ -48,6 +48,7 @@ import grammar_lesson_50 from "./lesson-50"
 import grammar_lesson_51 from "./lesson-51"
 import grammar_lesson_52 from "./lesson-52"
 import grammar_lesson_53 from "./lesson-53"
+import grammar_lesson_54 from "./lesson-54"
 
 export interface GrammarLesson {
   slug: string
@@ -787,5 +788,13 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
     description: "Use the indicative for habitual and past actions and the present subjunctive for future actions with cuando.",
     searchContent: `cuando indicativo subjuntivo futuro presente pasado habitual presente de subjuntivo futuro simple orden imperativo cuando llegues llámame`,
     component: grammar_lesson_53,
-  }
+  },
+  {
+    slug: "lesson-54-oraciones-causales",
+    title: "Lesson 54: Las oraciones causales",
+    level: "B1.1",
+    description: "Learn to explain causes and choose between Spanish causal connectors in everyday and formal contexts.",
+    searchContent: `oraciones causales causa motivo por qué porque como debido a debido a que a causa de a causa de que por puesto que dado que ya que indicativo sustantivo infinitivo adjetivo`,
+    component: grammar_lesson_54,
+  },
 ];
