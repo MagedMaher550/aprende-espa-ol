@@ -49,6 +49,7 @@ import grammar_lesson_51 from "./lesson-51"
 import grammar_lesson_52 from "./lesson-52"
 import grammar_lesson_53 from "./lesson-53"
 import grammar_lesson_54 from "./lesson-54"
+import grammar_lesson_55 from "./lesson-55"
 
 export interface GrammarLesson {
   slug: string
@@ -796,5 +797,13 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
     description: "Learn to explain causes and choose between Spanish causal connectors in everyday and formal contexts.",
     searchContent: `oraciones causales causa motivo por qué porque como debido a debido a que a causa de a causa de que por puesto que dado que ya que indicativo sustantivo infinitivo adjetivo`,
     component: grammar_lesson_54,
+  },
+  {
+    slug: "lesson-55-agradecer-y-disculparse",
+    title: "Lesson 55: Agradecer y disculparse",
+    level: "B1.1",
+    description: "Express gratitude, apologize, and ask for forgiveness with the infinitive and subjunctive.",
+    searchContent: `agradecer agradecimiento muchas gracias por infinitivo sustantivo estar agradecido agradecida te le agradezco que subjuntivo disculparse siento mucho infinitivo subjuntivo pedir disculpas perdón tratamiento formal informal`,
+    component: grammar_lesson_55,
   },
 ];
