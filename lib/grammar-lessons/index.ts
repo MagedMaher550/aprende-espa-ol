@@ -50,6 +50,7 @@ import grammar_lesson_52 from "./lesson-52"
 import grammar_lesson_53 from "./lesson-53"
 import grammar_lesson_54 from "./lesson-54"
 import grammar_lesson_55 from "./lesson-55"
+import grammar_lesson_56 from "./lesson-56"
 
 export interface GrammarLesson {
   slug: string
@@ -805,5 +806,13 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
     description: "Express gratitude, apologize, and ask for forgiveness with the infinitive and subjunctive.",
     searchContent: `agradecer agradecimiento muchas gracias por infinitivo sustantivo estar agradecido agradecida te le agradezco que subjuntivo disculparse siento mucho infinitivo subjuntivo pedir disculpas perdón tratamiento formal informal`,
     component: grammar_lesson_55,
+  },
+  {
+    slug: "lesson-56-el-preterito-perfecto-de-subjuntivo",
+    title: "Lesson 56: El pretérito perfecto de subjuntivo",
+    level: "B1.1",
+    description: "Learn to form and use the Spanish present perfect subjunctive to express wishes, emotions, doubts, opinions, and evaluations about completed actions.",
+    searchContent: `pretérito perfecto de subjuntivo haber presente de subjuntivo haya hayas hayamos hayáis hayan participio hablado hecho escrito dicho abierto muerto vuelto puesto visto resuelto deseos esperanzas emociones sentimientos dudas incertidumbre opiniones valoraciones indicativo presente diferencia ejercicios soluciones`,
+    component: grammar_lesson_56,
   },
 ];
