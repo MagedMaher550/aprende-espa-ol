@@ -51,6 +51,8 @@ import grammar_lesson_53 from "./lesson-53"
 import grammar_lesson_54 from "./lesson-54"
 import grammar_lesson_55 from "./lesson-55"
 import grammar_lesson_56 from "./lesson-56"
+import grammar_lesson_57 from "./lesson-57"
+import grammar_lesson_58 from "./lesson-58"
 
 export interface GrammarLesson {
   slug: string
@@ -814,5 +816,21 @@ export const GRAMMAR_LESSONS: GrammarLesson[] = [
     description: "Learn to form and use the Spanish present perfect subjunctive to express wishes, emotions, doubts, opinions, and evaluations about completed actions.",
     searchContent: `pretérito perfecto de subjuntivo haber presente de subjuntivo haya hayas hayamos hayáis hayan participio hablado hecho escrito dicho abierto muerto vuelto puesto visto resuelto deseos esperanzas emociones sentimientos dudas incertidumbre opiniones valoraciones indicativo presente diferencia ejercicios soluciones`,
     component: grammar_lesson_56,
+  },
+  {
+    slug: "lesson-57-el-futuro-perfecto-de-indicativo",
+    title: "Lesson 57: El Futuro Perfecto de Indicativo",
+    level: "B1.1",
+    description: "Learn to form and use the Spanish future perfect for actions completed before a future moment.",
+    searchContent: `futuro perfecto de indicativo haber futuro simple habré habrás habrá habremos habréis habrán participio pasado -ar -ado -er -ido -ir terminado hablado comer vivido expresiones temporales mañana para entonces antes de cuando futuro`,
+    component: grammar_lesson_57,
+  },
+  {
+    slug: "lesson-58-los-diferentes-usos-del-verbo-haber",
+    title: "Lesson 58: Los diferentes usos del verbo HABER",
+    level: "B1.1",
+    description: "Review HABER as an auxiliary in the present perfect, pluperfect, perfect subjunctive, and future perfect.",
+    searchContent: `haber auxiliar participio pasado tiempos compuestos pretérito perfecto de indicativo he has ha hemos habéis han pretérito pluscuamperfecto había habías habíamos habíais habían pretérito perfecto de subjuntivo haya hayas hayamos hayáis hayan futuro perfecto habré habrás habrá habremos habréis habrán`,
+    component: grammar_lesson_58,
   },
 ];
